@@ -1,0 +1,7 @@
+identifiant;continent;ville;couleur;disponibilité;nombres de places;espace actuel
+1;Europe;Toulouse;gris;;;1
+2;Afrique;Abidjan;rouge;;;2
+3;Amérique;Brasilia;jaune;;;3
+4;Asie;Tiajin;vert;;;4
+5;Océanie;Nouméa;undefine;;;5
+0;Antarctique;Dumont d’Urville;blanc;8-10/16-18;10;6
