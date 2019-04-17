@@ -2,21 +2,21 @@
 ALTER TABLE alcove
 ADD nom_continent VARCHAR(30)
 
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(1)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(2)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(3)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(4)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(5)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(6)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(7)
-INSERT objets_reservables(id_objet_reservable)
+INSERT INTO objets_reservables(id_objet_reservable)
 VALUES(8)
 
 
@@ -27,13 +27,13 @@ INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,id
 VALUES('rouge',1,2,10,'Abidjan',2,'Afrique')
 
 INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,id_objet_reservable,nom_continent)
-VALUES('jaune',1,3,10,'Brasilia',3,'Amérique')
+VALUES('jaune',1,3,10,'Brasilia',3,'AmÃ©rique')
 
 INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,id_objet_reservable,nom_continent)
 VALUES('vert',1,4,6,'Tiajin',4,'Asie')
 
 INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,id_objet_reservable,nom_continent)
-VALUES('bleu',1,5,10,'Nouméa',5,'Océanie')
+VALUES('bleu',1,5,10,'NoumÃ©a',5,'OcÃ©anie')
 
 
 ALTER TABLE objets_reservables
@@ -49,7 +49,7 @@ INSERT INTO objets_reservables(id_objet_reservable,type_objet_reservable)
 VALUES(3,'Casque')
 
 INSERT INTO objets_reservables(id_objet_reservable,type_objet_reservable)
-VALUES(4,'Clé USB)
+VALUES(4,'ClÃ© USB)
 
 INSERT INTO objets_reservables(id_objet_reservable,type_objet_reservable)
 VALUES(5,'Click-share')
