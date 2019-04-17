@@ -21,7 +21,7 @@ def closeConnection(cnx):
 
 def afficher(cnx, table, elmt="*"):
     """table et elmt en chaine de caractere"""
-    requete = "SELECT" + elmt + "FROM" + table ";"
+    requete = "SELECT" + elmt + "FROM" + table + ";"
     curseur = cnx.cursor()
     curseur.execute(requete)
     lignes = curseur.fetchall()
