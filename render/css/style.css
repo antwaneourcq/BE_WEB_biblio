@@ -68,27 +68,27 @@ figure {
   background: #add992;
 }
 
-#biblio-header {
+#fh5co-header {
   position: relative;
   margin-bottom: 0;
 }
 @media screen and (max-width: 480px) {
-  #biblio-header .top {
+  #fh5co-header .top {
     text-align: center;
   }
 }
-#biblio-header .top a {
-  color: rgba(255, 255, 255, 0.9);
+#fh5co-header .top a {
+  color: rgba(255, 255, 255, 0.7);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 @media screen and (max-width: 480px) {
-  #biblio-header .top a {
+  #fh5co-header .top a {
     float: left;
   }
 }
-#biblio-header .top a i {
+#fh5co-header .top a i {
   font-size: 17px;
   line-height: 0;
   position: relative;
@@ -100,7 +100,7 @@ figure {
   zoom: 1;
   *display: inline;
 }
-#biblio-header .top a:hover {
+#fh5co-header .top a:hover {
   color: white !important;
   text-decoration: underline;
 }
@@ -336,7 +336,7 @@ figure {
   border-left-color: #ccc;
 }
 
-#biblio-header-section {
+#fh5co-header-section {
   padding: 0;
   position: absolute;
   top: 5%;
@@ -353,7 +353,7 @@ figure {
   width: 100%;
 }
 
-#biblio-logo {
+#fh5co-logo {
   position: relative;
   z-index: 2;
   font-size: 26px;
@@ -364,16 +364,16 @@ figure {
   float: left;
 }
 @media screen and (max-width: 768px) {
-  #biblio-logo {
+  #fh5co-logo {
     width: 100%;
     float: none;
     text-align: center;
   }
 }
-#biblio-logo a {
+#fh5co-logo a {
   color: #fff;
 }
-#biblio-logo a:hover, #biblio-logo a:focus {
+#fh5co-logo a:hover, #fh5co-logo a:focus {
   color: #fff !important;
 }
 
@@ -976,7 +976,7 @@ h3.heading-section:before {
   opacity: 0;
 }
 
-#biblio-wrapper {
+#fh5co-wrapper {
   overflow-x: hidden;
   position: relative;
 }
