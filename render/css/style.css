@@ -24,14 +24,14 @@ body.fh5co-offcanvas {
 }
 
 a {
-  color: #79c34f;
+  color: #1B69CB;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 a:hover {
   text-decoration: none !important;
-  color: #79c34f !important;
+  color: #1B69CB !important;
 }
 
 p {
@@ -388,7 +388,7 @@ figure {
 }
 
 #fh5co-primary-menu > li > ul li.active > a {
-  color: #79c34f !important;
+  color: #1B69CB !important;
 }
 #fh5co-primary-menu > li > .sf-with-ul:after {
   border: none !important;
@@ -487,7 +487,7 @@ figure {
   background: none;
 }
 #fh5co-primary-menu .fh5co-sub-menu a:hover {
-  color: #79c34f !important;
+  color: #1B69CB !important;
 }
 
 #fh5co-work-section,
@@ -519,7 +519,7 @@ h3.heading-section:before {
   top: 0;
   width: 30px;
   height: 2px;
-  background: #79c34f;
+  background: #1B69CB;
 }
 
 .fh5co-grid {
@@ -899,7 +899,7 @@ h3.heading-section:before {
 }
 
 #footer {
-  background: #222831;
+  background: #342831;
   padding: 60px 0 40px;
 }
 #footer p {
@@ -953,18 +953,18 @@ h3.heading-section:before {
   transition: 0.3s;
 }
 .btn.btn-primary {
-  background: #79c34f;
+  background: #1B69CB;
   color: #fff;
   border: none !important;
   border: 2px solid transparent !important;
 }
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
   box-shadow: none;
-  background: #79c34f;
+  background: #1B69CB;
   color: #fff !important;
 }
 .btn:hover, .btn:active, .btn:focus {
-  background: #393e46 !important;
+  background: #208BF3 !important;
   color: #fff;
   outline: none !important;
 }
@@ -1025,14 +1025,14 @@ h3.heading-section:before {
   color: rgba(255, 255, 255, 0.4);
 }
 #offcanvas-menu ul li a:hover {
-  color: #79c34f;
+  color: #1B69CB;
 }
 #offcanvas-menu ul li > .fh5co-sub-menu {
   margin-top: 9px;
   padding-left: 20px;
 }
 #offcanvas-menu ul li.active > a {
-  color: #79c34f;
+  color: #1B69CB;
 }
 
 .fh5co-nav-toggle {
