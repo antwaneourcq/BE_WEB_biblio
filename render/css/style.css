@@ -953,7 +953,7 @@ h3.heading-section:before {
   transition: 0.3s;
 }
 .btn.btn-primary {
-  background: #79c34f;
+  background: #1B69C8;
   color: #fff;
   border: none !important;
   border: 2px solid transparent !important;
@@ -964,7 +964,7 @@ h3.heading-section:before {
   color: #fff !important;
 }
 .btn:hover, .btn:active, .btn:focus {
-  background: #393e46 !important;
+  background: #AFD0F7!important;
   color: #fff;
   outline: none !important;
 }

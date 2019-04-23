@@ -54,7 +54,7 @@ figure {
 }
 
 ::-webkit-selection {
-  color: #0F9DE8;
+  color: #fcfcfc;
   background: #add992;
 }
 
@@ -953,7 +953,7 @@ h3.heading-section:before {
   transition: 0.3s;
 }
 .btn.btn-primary {
-  background: #79c34f;
+  background: #1B69C8;
   color: #fff;
   border: none !important;
   border: 2px solid transparent !important;
