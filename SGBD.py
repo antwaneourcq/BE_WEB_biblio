@@ -47,16 +47,16 @@ def requete_sql(cnx, requete, param):
 
 ### alcove
 
-def ajout_alcove(cnx, id, continent, ville, couleur, dispo, nb_places):
+def ajout_alcove(cnx, id, continent, ville, couleur, dispo, nb_places, id_espace_actuel):
     #vérifier types + auto incrémentation de id ?
-    requete = "INSERT INTO alcove (id_objet_reservable, nom_continent, nom_ville, couleur, disponibilite, nb_places) VALUES(%s,%s,%s,%s,%s,%s);"
-    param = (id, continent, ville, couleur, dispo, nb_places)
+    requete = "INSERT INTO alcove (id_objet_reservable, nom_continent, nom_ville, couleur, disponibilite, nb_places, id_espace_actuel) VALUES(%s,%s,%s,%s,%s,%s);"
+    param = (id, continent, ville, couleur, dispo, nb_places, id_espace_actuel)
     requete_sql(cnx, requete, param)
 
-def maj_alcove(cnx, id, continent, ville, couleur, dispo, nb_places):
+def maj_alcove(cnx, id, continent, ville, couleur, dispo, nb_places, id_espace_actuel):
     #vérifier les données (types) + id existant
-    requete = "UPDATE alcove SET nom_continent = %s, nom_ville = %s, couleur = %s, disponibilite = %s, nb_places = %s WHERE id_objet_reservable = %s;"
-    param = (continent, ville, couleur, dispo, nb_places, id)
+    requete = "UPDATE alcove SET nom_continent = %s, nom_ville = %s, couleur = %s, disponibilite = %s, nb_places = %s, id_espace_actuel = %s WHERE id_objet_reservable = %s;"
+    param = (continent, ville, couleur, dispo, nb_places, id_espace_actuel, id)
     requete_sql(cnx, requete, param)
 
 def suppression_alcove(cnx, id):
@@ -79,6 +79,120 @@ def maj_objet_res(cnx, id, type_obj):
 
 def suppression_objet_res(cnx, id):
     requete = "DELETE FROM objets_reservables WHERE id_objet_reservable = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### ressources externes
+
+def ajout_res_ext(cnx, id, nom_ressource, etat_ressource, disponibilite):
+    requete = "INSERT INTO ressources_externes (id_objet_reservable, nom_ressource, etat_ressource, disponibilite) VALUES(%s,%s,%s,%s);"
+    param = (id, nom_ressource, etat_ressource, disponibilite)
+    requete_sql(cnx, requete, param)
+
+def maj_res_ext(cnx, id, nom_ressource, etat_ressource, disponibilite):
+    requete = "UPDATE ressources_externes SET nom_ressource = %s, etat_ressource = %s, disponibilite = %s WHERE id_objet_reservable = %s;"
+    param = (nom_ressource, etat_ressource, disponibilite, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_res_ext(cnx, id):
+    requete = "DELETE FROM ressources_externes WHERE id_objet_reservable = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### ressources internes
+
+def ajout_res_int(cnx, id, nom_ressource, id_espace_actuel):
+    requete = "INSERT INTO ressources_internes (id_objet_reservable, nom_ressource, id_espace_actuel) VALUES(%s,%s,%s);"
+    param = (id, nom_ressource, id_espace_actuel)
+    requete_sql(cnx, requete, param)
+
+def maj_res_int(cnx, id, nom_ressource, id_espace_actuel):
+    requete = "UPDATE ressources_internes SET nom_ressource = %s, id_espace_actuel = %s WHERE id_objet_reservable = %s;"
+    param = (nom_ressource, id_espace_actuel, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_res_int(cnx, id):
+    requete = "DELETE FROM ressources_internes WHERE id_objet_reservable = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### utilisateur id_utilisateur, mail, mdp, nom, prenom
+    
+def ajout_utilisateur(cnx, id, mail, mdp, nom, prenom):
+    requete = "INSERT INTO utilisateur (id_utilisateur, mail, mdp, nom, prenom) VALUES(%s,%s,%s,%s,%s);"
+    param = (id, mail, mdp, nom, prenom)
+    requete_sql(cnx, requete, param)
+
+def maj_utilisateur(cnx, id, mail, mdp, nom, prenom):
+    requete = "UPDATE utilisateur SET mail = %s, mdp = %s, nom = %s, prenom = %s WHERE id_utilisateur = %s;"
+    param = (mail, mdp, nom, prenom, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_utilisateur(cnx, id):
+    requete = "DELETE FROM utilisateur WHERE id_utilisateur = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### enseignants id_utilisateur, matiere
+
+def ajout_enseignant(cnx, id, matiere):
+    requete = "INSERT INTO enseignants(id_utilisateur, matiere) VALUES(%s,%s);"
+    param = (id, matiere)
+    requete_sql(cnx, requete, param)
+
+def maj_enseignant(cnx, id, matiere):
+    requete = "UPDATE enseignants SET matiere = %s WHERE id_utilisateur = %s;"
+    param = (matiere, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_enseignant(cnx, id):
+    requete = "DELETE FROM enseignants WHERE id_utilisateur = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### eleves id_, promotion
+
+def ajout_eleve(cnx, id, promotion):
+    requete = "INSERT INTO eleves(id_utilisateur, promotion) VALUES(%s,%s);"
+    param = (id, promotion)
+    requete_sql(cnx, requete, param)
+
+def maj_eleve(cnx, id, promotion):
+    requete = "UPDATE eleves SET promotion = %s WHERE id_utilisateur = %s;"
+    param = (promotion, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_eleve(cnx, id):
+    requete = "DELETE FROM eleves WHERE id_utilisateur = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### administrateurs id_ut
+
+def ajout_admin(cnx, id):
+    requete = "INSERT INTO administateurs(id_utilisateur) VALUES(%s);"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+def suppression_admin(cnx, id):
+    requete = "DELETE FROM administrateurs WHERE id_utilisateur = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+### reserver date, duree, heure, id_objet_reservable, id_reservation, id_utilisateur, nb_pers
+
+def ajout_reserver(cnx, id, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers):
+    requete = "INSERT INTO reserver (id_reservation, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers) VALUES(%s,%s,%s,%s,%s,%s,%s);"
+    param = (id, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers)
+    requete_sql(cnx, requete, param)
+
+def maj_reserver(cnx, id, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers):
+    requete = "UPDATE reserver SET date = %s, duree = %s, heure = %s, id_objet_reservable = %s, id_utilisateur = %s, nb_pers = %s WHERE id_utilisateur = %s;"
+    param = (date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_reserver(cnx, id):
+    requete = "DELETE FROM reserver WHERE id_reservation = %s;"
     param = (id)
     requete_sql(cnx, requete, param)
 
