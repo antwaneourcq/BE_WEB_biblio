@@ -8,6 +8,8 @@ config = {
     'raise_on_warnings': True, #à vérifier si virgule ou pas
 }
 
+### gestion du sql
+
 def createConnection():
     cnx = None
     try:
@@ -32,24 +34,6 @@ def afficher(cnx, table, elmt="*"):
     curseur.close()
     #return s ###si besoin de récupérer un jour les données de lecture
 
-def ajout_alcove(cnx, id, continent, ville, couleur, dispo, nb_places):
-    #vérifier types + auto incrémentation de id ?
-    requete = "INSERT INTO alcoves (id_objet_reservable, continent, ville, couleur disponibilite, nb_places) VALUES(%s,%s,%s,%s,%s,%s);"
-    param = (id, continent, ville, couleur, dispo, nb_places)
-    requete_sql(cnx, requete, param)
-
-def maj_alcove(cnx, id, continent, ville, couleur, dispo, nb_places):
-    #vérifier les données (types) + id existant
-    requete = "UPDATE alcoves SET continent = %s, ville = %s, couleur = %s, disponibilite = %s, nb_places = %s WHERE id_objet_reservable = %s;"
-    param = (continent, ville, couleur, dispo, nb_places, id)
-    requete_sql(cnx, requete, param)
-
-def suppression_alcove(cnx, id):
-    #vérifier si l'alcove existe
-    requete = "DELETE FROM alcoves WHERE id_objet_reservable = %s;"
-    param = (id)
-    requete_sql(cnx, requete, param)
-
 def requete_sql(cnx, requete, param):
     try :
         cnx.autocommit(False)
@@ -61,15 +45,25 @@ def requete_sql(cnx, requete, param):
         cnx.rollback()
     curseur.close()
 
-def creation_Table_alcove(nom, fichier):
-    #non fini
-    with open(fichier, 'r') as f:
-        i = 0
-        cnx = createConnection()
-        for i, line in enumerate(f):
-            continent, ville, couleur, dispo, nb_places = line.split(';')
-            ajout_alcove(cnx, i, continent, ville, couleur, dispo, nb_places)
-            
+### alcove
+
+def ajout_alcove(cnx, id, continent, ville, couleur, dispo, nb_places):
+    #vérifier types + auto incrémentation de id ?
+    requete = "INSERT INTO alcove (id_objet_reservable, nom_continent, nom_ville, couleur, disponibilite, nb_places) VALUES(%s,%s,%s,%s,%s,%s);"
+    param = (id, continent, ville, couleur, dispo, nb_places)
+    requete_sql(cnx, requete, param)
+
+def maj_alcove(cnx, id, continent, ville, couleur, dispo, nb_places):
+    #vérifier les données (types) + id existant
+    requete = "UPDATE alcove SET nom_continent = %s, nom_ville = %s, couleur = %s, disponibilite = %s, nb_places = %s WHERE id_objet_reservable = %s;"
+    param = (continent, ville, couleur, dispo, nb_places, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_alcove(cnx, id):
+    #vérifier si l'alcove existe
+    requete = "DELETE FROM alcove WHERE id_objet_reservable = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)         
 
 ### objets réservables
 
@@ -79,4 +73,22 @@ def ajout_obj_res(cnx, id, type_obj):
     requete_sql(cnx, requete, param)
 
 def maj_objet_res(cnx, id, type_obj):
-    pass
+    requete = "UPDATE objets_reservables SET type_objet_reservable = %s WHERE id_objet_reservable = %s;"
+    param = (type_obj, id)
+    requete_sql(cnx, requete, param)
+
+def suppression_objet_res(cnx, id):
+    requete = "DELETE FROM objets_reservables WHERE id_objet_reservable = %s;"
+    param = (id)
+    requete_sql(cnx, requete, param)
+
+'''
+def creation_Table_alcove(nom, fichier):
+    #non fini
+    with open(fichier, 'r') as f:
+        i = 0
+        cnx = createConnection()
+        for i, line in enumerate(f):
+            continent, ville, couleur, dispo, nb_places = line.split(';')
+            ajout_alcove(cnx, i, continent, ville, couleur, dispo, nb_places)
+'''
