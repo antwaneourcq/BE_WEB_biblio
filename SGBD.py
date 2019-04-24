@@ -47,8 +47,10 @@ def requete_sql(cnx, requete, param):
 
 ### alcove
 
-def ajout_alcove(cnx, id, continent, ville, couleur, dispo, nb_places, id_espace_actuel):
+def ajout_alcove(cnx, continent, ville, couleur, dispo, nb_places, id_espace_actuel):
     #vérifier types + auto incrémentation de id ?
+    id = get_id_obj_res(cnx) + 1
+    ajout_obj_res(cnx, id, "alcove")
     requete = "INSERT INTO alcove (id_objet_reservable, nom_continent, nom_ville, couleur, disponibilite, nb_places, id_espace_actuel) VALUES(%s,%s,%s,%s,%s,%s);"
     param = (id, continent, ville, couleur, dispo, nb_places, id_espace_actuel)
     requete_sql(cnx, requete, param)
@@ -61,9 +63,10 @@ def maj_alcove(cnx, id, continent, ville, couleur, dispo, nb_places, id_espace_a
 
 def suppression_alcove(cnx, id):
     #vérifier si l'alcove existe
-    requete = "DELETE FROM alcove WHERE id_objet_reservable = %s;"
-    param = (id)
-    requete_sql(cnx, requete, param)         
+    suppression_objet_res(cnx, id)
+    #requete = "DELETE FROM alcove WHERE id_objet_reservable = %s;"
+    #param = (id)
+    #requete_sql(cnx, requete, param)         
 
 ### objets réservables
 
@@ -81,6 +84,20 @@ def suppression_objet_res(cnx, id):
     requete = "DELETE FROM objets_reservables WHERE id_objet_reservable = %s;"
     param = (id)
     requete_sql(cnx, requete, param)
+
+def get_id_obj_res(cnx): #en attente de Louli
+    requete = "SELECT max(id) FROM objets_reservables"
+    try :
+        cnx.autocommit(False)
+        curseur = cnx.cursor()
+        curseur.execute(requete)
+        id = curseur.fetchone()
+        cnx.commit()
+    except Exception as e:
+        print(e)
+        cnx.rollback()
+    curseur.close()
+    return id
 
 ### ressources externes
 
