@@ -1,24 +1,29 @@
 import mysql.connector
-
+from mysql.connector import errorcode
 config = {
     'user': 'root',
     'password': 'mysql',
     'host': 'localhost',
-    'database': 'be_Web_Bibliotheque',
-    'raise_on_warnings': True, #à vérifier si virgule ou pas
+    'database': 'bibliotheque',
+    'raise_on_warnings': True #à vérifier si virgule ou pas
 }
 
 ### gestion du sql
 
 def createConnection():
-    cnx = None
+    cnx = ""
     try:
         cnx = mysql.connector.connect(**config)
-    except Exception as e:
-        print("Error :"+ e)
-    return cnx
+    except mysql.connector.Error as err:
+        if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Mauvais login ou mot de passe")
+        elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("La Base de données n'existe pas.")
+        else:
+            print(err)
 
-def closeConnection(cnx):
+def closeConnection(cnx, cursor):
+    cursor.close()
     cnx.close()
 
 def afficher(cnx, table, elmt="*"):
@@ -223,3 +228,13 @@ def creation_Table_alcove(nom, fichier):
             continent, ville, couleur, dispo, nb_places = line.split(';')
             ajout_alcove(cnx, i, continent, ville, couleur, dispo, nb_places)
 '''
+
+def read():
+    cnx = createConnection()
+    cursor = cnx.cursor()
+    requete = "SELECT * FROM objets_reservables"
+    curseur = cnx.cursor()
+    curseur.execute(requete)
+    d = curseur.fetchone()
+    curseur.close()
+    return d
