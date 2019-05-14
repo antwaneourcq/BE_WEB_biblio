@@ -1,0 +1,54 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="Clotilde" >
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>{% block title %}{% endblock %}</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{{ url_for('static',  filename='css/linearicons.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static',  filename='css/font-awesome.min.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static',  filename='css/jquery.DonutWidget.min.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static',  filename='css/bootstrap.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static',  filename='css/owl.carousel.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static',  filename='css/main.css') }}">
+			{% block CSSlink%}{% endblock %}
+			</head>
+			<body>
+		{% block header %}{% endblock %}
+			<!-- End Header Area -->
+			<!-- start banner Area -->
+		{% block content %}{% endblock %}
+			<!-- End banner Area -->	
+
+			
+			<!-- start footer Area -->		
+			{% block footer %}{% endblock %}
+			<!-- End footer Area -->		
+
+			<script src="{{ url_for('static', filename= 'js/vendor/jquery-2.2.4.min.js') }}" charset="UTF-8"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+			<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}" charset="UTF-8"></script>
+			<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}" charset="UTF-8"></script>
+			<script src="{{ url_for('static', filename='js/parallax.min.js') }}" charset="UTF-8"></script>			
+			<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}" charset="UTF-8"></script>			
+			<script src="{{ url_for('static', filename='js/jquery.sticky.js') }}" charset="UTF-8"></script>
+			<script src="{{ url_for('static', filename='js/jquery.DonutWidget.min.js') }}" charset="UTF-8"></script>
+			<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}" charset="UTF-8"></script>			
+			<script src="{{ url_for('static', filename='js/main.js') }}" charset="UTF-8"></script>	
+		{% block JSscript %}{% endblock %}</body>	
+	</html>
