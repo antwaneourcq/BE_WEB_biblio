@@ -3,7 +3,7 @@ from flask import Flask
 
 
 #app.run(debug=True)
-app = Flask(__name__, template_folder = 'render') #__init__.py, 'template'
+app = Flask(__name__, template_folder = 'template') #__init__.py, 'template'
 app.config.from_object('config')
 
 
