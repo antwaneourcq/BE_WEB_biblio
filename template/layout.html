@@ -1,5 +1,5 @@
-	<!DOCTYPE html>
-	<html lang="zxx" class="no-js">
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,38 +17,102 @@
 		<title>{% block title %}{% endblock %}</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="{{ url_for('static',  filename='css/linearicons.css') }}">
-			<link rel="stylesheet" href="{{ url_for('static',  filename='css/font-awesome.min.css') }}">
-			<link rel="stylesheet" href="{{ url_for('static',  filename='css/jquery.DonutWidget.min.css') }}">
-			<link rel="stylesheet" href="{{ url_for('static',  filename='css/bootstrap.css') }}">
-			<link rel="stylesheet" href="{{ url_for('static',  filename='css/owl.carousel.css') }}">
-			<link rel="stylesheet" href="{{ url_for('static',  filename='css/main.css') }}">
-			{% block CSSlink%}{% endblock %}
-			</head>
-			<body>
-		{% block header %}{% endblock %}
-			<!-- End Header Area -->
-			<!-- start banner Area -->
-		{% block content %}{% endblock %}
-			<!-- End banner Area -->	
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" href="{{ url_for('static',  filename='css/linearicons.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static',  filename='css/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static',  filename='css/jquery.DonutWidget.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static',  filename='css/bootstrap.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static',  filename='css/owl.carousel.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static',  filename='css/main.css') }}">
+	{% block CSSlink%}{% endblock %}
+	</head>
 
+	<body>
+			<header class="default-header">
+					<nav class="navbar navbar-expand-lg  navbar-light">
+						<div class="container">
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+								</button>
 			
-			<!-- start footer Area -->		
-			{% block footer %}{% endblock %}
-			<!-- End footer Area -->		
+								<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+								<ul class="navbar-nav">
+									<li><a href="#home">Accueil</a></li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+										A propos
+										</a>
+										<div class="dropdown-menu">
+										<a class="dropdown-item" href="nos_services.html">Nos services</a>
+										<a class="dropdown-item" href="bos_regles.html">Nos règles</a>
+										<a class="dropdown-item" href="webmasters.html">Webmasters</a>
+										</div>
+									</li>				
+									<li><a href="#reservation">Réservation</a></li>
+									<li><a href="#commentaires">Commentaires</a></li>
+									<li><a href="#se_connecter">Se connecter</a></li>						    					
+								</ul>
+							</div>						
+						</div>
+					</nav>
+				</header>
 
-			<script src="{{ url_for('static', filename= 'js/vendor/jquery-2.2.4.min.js') }}" charset="UTF-8"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-			<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}" charset="UTF-8"></script>
-			<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}" charset="UTF-8"></script>
-			<script src="{{ url_for('static', filename='js/parallax.min.js') }}" charset="UTF-8"></script>			
-			<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}" charset="UTF-8"></script>			
-			<script src="{{ url_for('static', filename='js/jquery.sticky.js') }}" charset="UTF-8"></script>
-			<script src="{{ url_for('static', filename='js/jquery.DonutWidget.min.js') }}" charset="UTF-8"></script>
-			<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}" charset="UTF-8"></script>			
-			<script src="{{ url_for('static', filename='js/main.js') }}" charset="UTF-8"></script>	
-		{% block JSscript %}{% endblock %}</body>	
-	</html>
+		<!-- start footer Area -->		
+	
+
+	<!-- End footer Area -->	
+	{% block header %} {% endblock %}
+		<!-- End Header Area -->
+		<!-- start banner Area -->
+	{% block content %} {% endblock %}
+		<!-- End banner Area -->	
+
+		
+
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-12">
+					<div class="single-footer-widget">
+							<li><a href="#">Accueil</a></li>
+							<li><a href="#">Réservation</a></li>
+							<li><a href="#">Commentaires</a></li>
+							<li><a href="#">Se Connecter</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row footer-bottom d-flex justify-content-between">
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				<div class="col-lg-4 col-sm-12 footer-social">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-dribbble"></i></a>
+					<a href="#"><i class="fa fa-behance"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	
+	<script src="{{ url_for('static', filename= 'js/vendor/jquery-2.2.4.min.js') }}" charset="UTF-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}" charset="UTF-8"></script>
+	<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}" charset="UTF-8"></script>
+	<script src="{{ url_for('static', filename='js/parallax.min.js') }}" charset="UTF-8"></script>			
+	<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}" charset="UTF-8"></script>			
+	<script src="{{ url_for('static', filename='js/jquery.sticky.js') }}" charset="UTF-8"></script>
+	<script src="{{ url_for('static', filename='js/jquery.DonutWidget.min.js') }}" charset="UTF-8"></script>
+	<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}" charset="UTF-8"></script>			
+	<script src="{{ url_for('static', filename='js/main.js') }}" charset="UTF-8"></script>	
+	{% block JSscript %}{% endblock %}
+
+</body>	
+</html>
