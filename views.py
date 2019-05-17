@@ -44,7 +44,7 @@ def reservation():
 def comment():
     msg = functions.msg_info(request.args)  # message d'info pour ajout ou suppression des commentaires
     comments = bdd.get_allCommentData()
-    return render_template('commentaires.html', data=comments, info=msg)
+    return render_template('commentaires.html')#, data=comments, info=msg)
 
 
 @app.route('/formulaire',methods = ['POST', 'GET'])
