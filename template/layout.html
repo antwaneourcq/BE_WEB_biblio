@@ -45,14 +45,24 @@
 										A propos
 										</a>
 										<div class="dropdown-menu">
-										<a class="dropdown-item" href="nos_services.html">Nos services</a>
-										<a class="dropdown-item" href="bos_regles.html">Nos règles</a>
-										<a class="dropdown-item" href="webmasters.html">Webmasters</a>
+										<a class="dropdown-item" href="{{ url_for('nos_services') }}">Nos services</a>
+										<a class="dropdown-item" href="{{ url_for('nos_regles') }}">Nos règles</a>
+										<a class="dropdown-item" href="{{ url_for('webmasters') }}">Webmasters</a>
 										</div>
 									</li>				
-									<li><a href="reservation.html">Réservation</a></li>
-									<li><a href="commentaires.html">Commentaires</a></li>
-									<li><a href="se_connecter.html">Se connecter</a></li>						    					
+									<li><a href="#reservation">Réservation</a></li>
+									<li><a href="#commentaires">Commentaires</a></li>
+									<li>
+											{% if not session.logged_in %}
+											<a href="{{ url_for('se_connecter') }}">
+											Se connecter
+											</a>
+											{% else %}
+											<a href="{{ url_for('se_deconnecter') }}">
+											Se déconnecter
+											</a>
+											{% endif %}
+									</li>						    					
 								</ul>
 							</div>						
 						</div>
@@ -60,7 +70,6 @@
 				</header>
 
 		<!-- start footer Area -->		
-	
 
 	<!-- End footer Area -->	
 		<!-- start banner Area -->

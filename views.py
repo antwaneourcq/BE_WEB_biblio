@@ -22,6 +22,24 @@ def webmasters():
 def message_recu():
     return render_template('message_recu.html')
 
+@app.route('/nos_regles')
+def nos_regles():
+    return render_template('nos_regles.html')
+
+@app.route('/nos_services')
+def nos_services():
+    return render_template('nos_services.html')
+
+@app.route('/se_connecter')
+def se_connecter():
+    return render_template('se_connecter.html')
+    
+@app.route('/reservation')
+def reservation():
+    return render_template('reservation.html')
+
+
+#suite des routes encore non utilisées
 @app.route('/commentaires')
 def comment():
     msg = functions.msg_info(request.args)  # message d'info pour ajout ou suppression des commentaires
