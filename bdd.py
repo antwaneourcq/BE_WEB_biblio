@@ -4,9 +4,9 @@ from mysql.connector import errorcode
 
 config = {
         'user': 'root',
-        'password': 'mysql',
+        'password': '',
         'host': 'localhost',
-        'database': 'test_ienac',
+        'database': 'bibliotheque',
         'raise_on_warnings': True
     }
 
@@ -71,6 +71,7 @@ def get_allCommentData():
 
     try:
         cnx = connexion()
+        print('canal : ', cnx)
         cursor = cnx.cursor()
         sql = "SELECT * FROM commentaires"
         cursor.execute(sql)
