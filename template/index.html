@@ -1,18 +1,8 @@
-	<!DOCTYPE html>
-	{% extends 'layout.html' %}
-	
-	
-	{% block title %} Site reservation biblio ENAC {% endblock %}
+<!DOCTYPE html>
+{% extends 'layout.html' %}
 
-			<!-- Start Header Area -->
-			{% block header %}
-			<header class="default-header">
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
 
+<<<<<<< HEAD
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="#home">Accueil</a></li>
@@ -54,38 +44,36 @@
 			</section>
 			{% endblock %}
 			<!-- End banner Area -->	
+=======
+{% block title %} Site reservation biblio ENAC {% endblock %}
+>>>>>>> de342547dbed26c76d489d8f9891f0d606598f0f
 
-			
-			<!-- start footer Area -->		
-			{% block footer %}
-			<footer class="footer-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3  col-md-12">
-							<div class="single-footer-widget">
-									<li><a href="#">Accueil</a></li>
-									<li><a href="#">Réservation</a></li>
-									<li><a href="#">Commentaires</a></li>
-									<li><a href="#">Se Connecter</a></li>
-								</ul>
-							</div>
-						</div>
+<!-- Start Header Area -->
+{% block header %}
 		
-					</div>
+{% endblock %}
+<!-- End Header Area -->
+<!-- start banner Area -->
+{% block content %}
 
-					<div class="row footer-bottom d-flex justify-content-between">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						<div class="col-lg-4 col-sm-12 footer-social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
-						</div>
-					</div>
-				</div>
-			</footer>
-			{% endblock %}
-			<!-- End footer Area -->		
-			
+	<section class="banner-area relative" id="home" data-parallax="scroll" data-image-src="../static/img/header-bg.jpg">
+		<div class="overlay-bg overlay"></div>
+		<div class="container">
+			<div class="row fullscreen  d-flex align-items-center justify-content-end">
+				<div class="banner-content col-lg-6 col-md-12">
+					<h1>
+						Site de réservation  <br>
+						<span>Bibliothèque ENAC</span> <br>					
+					</h1>
+					<a href="#" class="primary-btn2 header-btn text-uppercase">Se Connecter</a>
+				</div>												
+			</div>
+		</div>
+	</section>
+{% endblock %}
+		<!-- End banner Area -->	
+
+		
+		<!-- start footer Area -->		
+
+<!-- End footer Area -->
