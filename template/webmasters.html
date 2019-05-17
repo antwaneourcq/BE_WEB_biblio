@@ -1,5 +1,8 @@
 	<!DOCTYPE html>
 	
+	{% extends 'layout.html' %}
+	
+	{% block content %}
 				<!-- Start banner Area -->
 			<section class="generic-banner relative">		
 				<div class="container">
@@ -32,9 +35,9 @@
 					<div class="row justify-content-center d-flex align-items-center">
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/t1.jpg" alt="">
+						        <img class="img-fluid" src="../static/img/t1.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
-									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="https://www.linkedin.com/in/clotilde-antona-53719a17b/"><i class="fa fa-linkedin"></i></a>
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
@@ -43,9 +46,9 @@
 						</div>
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/t2.jpg" alt="">
+						        <img class="img-fluid" src="../static/img/t2.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
-									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="https://www.linkedin.com/in/loïc-dubois-31b63817b/"><i class="fa fa-linkedin"></i></a>
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
@@ -54,9 +57,9 @@
 						</div>	
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/t3.jpg" alt="">
+						        <img class="img-fluid" src="../static/img/t3.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
-									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="https://www.linkedin.com/in/antoine-leclercq-9b5a6b17b/"><i class="fa fa-linkedin"></i></a>
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
@@ -65,9 +68,9 @@
 						</div>	
 						<div class="col-md-3 single-team">
 						    <div class="thumb">
-						        <img class="img-fluid" src="img/t4.jpg" alt="">
+						        <img class="img-fluid" src="../static/img/t4.jpg" alt="">
 						        <div class="align-items-center justify-content-center d-flex">
-									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="https://www.linkedin.com/in/danyl-louli-1a9909175/"><i class="fa fa-linkedin"></i></a>
 						        </div>
 						    </div>
 						    <div class="meta-text mt-30 text-center">
@@ -90,5 +93,5 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/jquery.DonutWidget.min.js"></script>
 		<script src="js/main.js"></script>
-	</body>
+	{% endblock %}
 </html>
