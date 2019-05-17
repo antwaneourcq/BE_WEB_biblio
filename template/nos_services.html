@@ -1,4 +1,7 @@
 	<!DOCTYPE html>
+	
+	{% extends 'layout.html' %}
+	
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -28,7 +31,8 @@
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
 		</head>
-		<body>
+		
+		{% block content %}
 
 			<!-- Start banner Area -->
 			<section class="generic-banner relative">			
@@ -95,5 +99,5 @@
 			<script src="js/parallax.min.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/main.js"></script>	
-		</body>
+		{% endblock %}
 	</html>

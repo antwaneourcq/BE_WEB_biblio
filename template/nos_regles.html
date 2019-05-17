@@ -1,4 +1,7 @@
 	<!DOCTYPE html>
+	
+	{% extends 'layout.html' %}
+	
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -28,42 +31,8 @@
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
 		</head>
-		<body>
-
-			<!-- Start Header Area -->
-			<header class="default-header">
-				<nav class="navbar navbar-expand-lg  navbar-light">
-					<div class="container">
-						  <a class="navbar-brand" href="index.html">
-						  </a>
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-
-						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-								<li><a href="index.html#home">Home</a></li>
-								<li><a href="index.html#service">Service</a></li>
-								<li><a href="index.html#project">project</a></li>
-								<li><a href="index.html#blog">blog</a></li>
-								<li><a href="index.html#team">team</a></li>
-							   <!-- Dropdown -->
-							    <li class="dropdown">
-							      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-							        Pages
-							      </a>
-							      <div class="dropdown-menu">
-							        <a class="dropdown-item" href="generic.html">Generic</a>
-							        <a class="dropdown-item" href="elements.html">Elements</a>
-							      </div>
-							    </li>									
-						    </ul>
-						  </div>						
-					</div>
-				</nav>
-			</header>
-			<!-- End Header Area -->
-			
+		
+		{% block content %}
 			<!-- Start banner Area -->
 			<section class="generic-banner relative">			
 				<div class="container">
@@ -518,7 +487,7 @@
 								</div>
 								<div class="single-element-widget mt-30">
 									<h3 class="mb-30">Selectboxes</h3>
-									<div class="default-select" id="default-select"">
+									<div class="default-select" id="default-select">
 										<select>
 											<option value="1">English</option>
 											<option value="1">Spanish</option>
@@ -693,5 +662,5 @@
 			<script src="js/parallax.min.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/main.js"></script>	
-		</body>
+		{% endblock %}
 	</html>
