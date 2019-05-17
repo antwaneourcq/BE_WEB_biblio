@@ -52,7 +52,17 @@
 									</li>				
 									<li><a href="#reservation">Réservation</a></li>
 									<li><a href="#commentaires">Commentaires</a></li>
-									<li><a href="#se_connecter">Se connecter</a></li>						    					
+									<li>
+											{% if not session.logged_in %}
+											<a href="{{ url_for('se_connecter') }}">
+											Se connecter
+											</a>
+											{% else %}
+											<a href="{{ url_for('se_deconnecter') }}">
+											Se déconnecter
+											</a>
+											{% endif %}
+									</li>						    					
 								</ul>
 							</div>						
 						</div>
@@ -60,7 +70,6 @@
 				</header>
 
 		<!-- start footer Area -->		
-	
 
 	<!-- End footer Area -->	
 	{% block header %} {% endblock %}
