@@ -50,8 +50,8 @@
 										<a class="dropdown-item" href="{{ url_for('webmasters') }}">Webmasters</a>
 										</div>
 									</li>				
-									<li><a href="{{ url_for('reservation') }}">Réservation</a></li>
-									<li><a href="{{ url_for('comment') }}">Commentaires</a></li>
+									<li><a href="#reservation">Réservation</a></li>
+									<li><a href="#commentaires">Commentaires</a></li>
 									<li>
 											{% if not session.logged_in %}
 											<a href="{{ url_for('se_connecter') }}">
