@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 23 avr. 2019 à 13:38
+-- Généré le :  ven. 17 mai 2019 à 09:31
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.3
 
@@ -103,7 +103,7 @@ CREATE TABLE `enseignants` (
 --
 
 INSERT INTO `enseignants` (`id_utilisateur`, `matiere`) VALUES
-(6, 'Théorie de la mesure');
+(1, 'Théorie de la mesure');
 
 -- --------------------------------------------------------
 
@@ -197,12 +197,13 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id_utilisateur`, `nom`, `prenom`, `mail`, `mdp`) VALUES
-(1, 'Louli', 'Danyl', 'danyl.louli@alumni.enac.fr', 'azerty'),
-(2, 'Leclercq', 'Antoine', 'antoine.leclercq@alumni.enac.fr', 'toto'),
-(3, 'Dubois', 'Loic', 'loic.dubois@alumni.enac.fr', 'PSGchampions'),
-(4, 'Antona', 'Clotilde', 'clotilde.antona@alumni.enac.fr', 'Vertmeilleurecouleur'),
-(5, 'Lezaud', 'Pascal', 'Pascal.lezaud@enac.fr', 'analyse'),
-(6, 'Porte', 'Laurence', 'Laurence.porte@enac.fr', 'analyse');
+(1, 'jojo', 'lala', 'joa@gmail.com', 'afkaokz'),
+(2, 'Louli', 'Danyl', 'danyl.louli@alumni.enac.fr', 'azerty'),
+(3, 'Leclercq', 'Antoine', 'antoine.leclercq@alumni.enac.fr', 'toto'),
+(4, 'Dubois', 'Loic', 'loic.dubois@alumni.enac.fr', 'PSGchampions'),
+(5, 'Antona', 'Clotilde', 'clotilde.antona@alumni.enac.fr', 'Vertmeilleurecouleur'),
+(6, 'Lezaud', 'Pascal', 'Pascal.lezaud@enac.fr', 'analyse'),
+(7, 'Porte', 'Laurence', 'Laurence.porte@enac.fr', 'analyse');
 
 --
 -- Index pour les tables déchargées
@@ -265,6 +266,58 @@ ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`id_utilisateur`);
 
 --
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `alcove`
+--
+ALTER TABLE `alcove`
+  MODIFY `id_objet_reservable` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `eleves`
+--
+ALTER TABLE `eleves`
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `enseignants`
+--
+ALTER TABLE `enseignants`
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `objets_reservables`
+--
+ALTER TABLE `objets_reservables`
+  MODIFY `id_objet_reservable` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `reserver`
+--
+ALTER TABLE `reserver`
+  MODIFY `id_reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `ressources_externes`
+--
+ALTER TABLE `ressources_externes`
+  MODIFY `id_objet_reservable` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `ressources_internes`
+--
+ALTER TABLE `ressources_internes`
+  MODIFY `id_objet_reservable` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -304,6 +357,12 @@ ALTER TABLE `reserver`
 --
 ALTER TABLE `ressources_externes`
   ADD CONSTRAINT `ressources_externes_ibfk_1` FOREIGN KEY (`id_objet_reservable`) REFERENCES `objets_reservables` (`id_objet_reservable`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `ressources_internes`
+--
+ALTER TABLE `ressources_internes`
+  ADD CONSTRAINT `ressources_internes_ibfk_1` FOREIGN KEY (`id_objet_reservable`) REFERENCES `objets_reservables` (`id_objet_reservable`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
