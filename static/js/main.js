@@ -1,125 +1,188 @@
-;(function () {
-	
-	'use strict';
+
+$(document).ready(function(){
+	"use strict";
+
+	var window_width 	 = $(window).width(),
+	window_height 		 = window.innerHeight,
+	header_height 		 = $(".default-header").height(),
+	header_height_static = $(".site-header.static").outerHeight(),
+	fitscreen 			 = window_height - header_height;
+
+
+	$(".fullscreen").css("height", window_height)
+	$(".fitscreen").css("height", fitscreen);
+
+  //-------- Active Sticky Js ----------//
+  $(".default-header").sticky({topSpacing:0});
+
+     if(document.getElementById("default-select")){
+          $('select').niceSelect();
+    };
+
+    $('.img-pop-up').magnificPopup({
+        type: 'image',
+        gallery:{
+        enabled:true
+        }
+    });
+
+
+  // $('.navbar-nav>li>a').on('click', function(){
+  //     $('.navbar-collapse').collapse('hide');
+  // });
 
 
 
-	// iPad and iPod detection	
-	var isiPad = function(){
-		return (navigator.platform.indexOf("iPad") != -1);
-	};
+    $('.active-works-carousel').owlCarousel({
+        items:1,
+        loop:true,
+        margin: 100,
+        dots: true,
+        autoplay:true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 1,
+            },
+            768: {
+                items: 1,
+            }
+        }
+    });
 
-	var isiPhone = function(){
-	    return (
-			(navigator.platform.indexOf("iPhone") != -1) || 
-			(navigator.platform.indexOf("iPod") != -1)
-	    );
-	};
-
-	// Main Menu Superfish
-	var mainMenu = function() {
-
-		$('#fh5co-primary-menu').superfish({
-			delay: 0,
-			animation: {
-				opacity: 'show'
-			},
-			speed: 'fast',
-			cssArrows: true,
-			disableHI: true
-		});
-
-	};
-
-	// Offcanvas and cloning of the main menu
-	var offcanvas = function() {
-
-		var $clone = $('#fh5co-menu-wrap').clone();
-		$clone.attr({
-			'id' : 'offcanvas-menu'
-		});
-		$clone.find('> ul').attr({
-			'class' : '',
-			'id' : ''
-		});
-
-		$('#fh5co-page').prepend($clone);
-
-		// click the burger
-		$('.js-fh5co-nav-toggle').on('click', function(){
-
-			if ( $('body').hasClass('fh5co-offcanvas') ) {
-				$('body').removeClass('fh5co-offcanvas');
-			} else {
-				$('body').addClass('fh5co-offcanvas');
-			}
-			// $('body').toggleClass('fh5co-offcanvas');
-
-		});
-
-		$(window).resize(function(){
-			var w = $(window);
-
-			if ( w.width() > 769 ) {
-				if ( $('body').hasClass('fh5co-offcanvas') ) {
-					$('body').removeClass('fh5co-offcanvas');
-				}
-			}
-
-		});	
-
-	}
-
-	// Superfish Sub Menu Click ( Mobiles/Tablets )
-	var mobileClickSubMenus = function() {
-
-		$('body').on('click', '.fh5co-sub-ddown', function(event) {
-			event.preventDefault();
-			var $this = $(this),
-				li = $this.closest('li');
-			li.find('> .fh5co-sub-menu').slideToggle(200);
-		});
-
-	};
+    $('.active-testimonial').owlCarousel({
+        items:2,
+        loop:true,
+        margin: 20,
+        dots: true,
+        autoplay:true,
+        nav:true,
+        navText: ["<span class='lnr lnr-arrow-up'></span>","<span class='lnr lnr-arrow-down'></span>"],        
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            }
+        }
+    });
 
 
-	// Animations
-
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.animate-box').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-				
-				i++;
-
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
-
-					$('body .animate-box.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							el.addClass('fadeInUp animated');
-							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
-					});
-					
-				}, 100);
-				
-			}
-
-		} , { offset: '85%' } );
-	};
-	
-
-	// Document on load.
-	$(function(){
-
-		offcanvas();
-		contentWayPoint();
-		
-
-	});
 
 
-}());
+
+  // Select all links with hashes
+  $('.navbar-nav a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .on('click',function(event) {
+  // On-page links
+  if (
+    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+    && 
+    location.hostname == this.hostname
+  ) {
+    // Figure out element to scroll to
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    // Does a scroll target exist?
+    if (target.length) {
+      // Only prevent default if animation is actually gonna happen
+      event.preventDefault();
+      $('html, body').animate({
+        scrollTop: target.offset().top-50
+      }, 1000, function() {
+        // Callback after animation
+        // Must change focus!
+        var $target = $(target);
+        $target.focus();
+        if ($target.is(":focus")) { // Checking if the target was focused
+          return false;
+        } else {
+          $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+          $target.focus(); // Set focus again
+        };
+      });
+    }
+  }
+  });
+
+
+    $(".skill1").DonutWidget({
+
+      // these are default options
+      max: 100, 
+      value: 75, 
+      text: "", 
+      rotate: 0, 
+      caption: "", 
+      template: [
+        '<div class="donut-hole"><span class="donut-filling"></div>', 
+        '<div class="donut-bite" data-segment-index="0"></div>', 
+        '<div class="donut-bite" data-segment-index="1"></div>', 
+        '<div class="donut-caption-wrapper"><span class="donut-caption"></span></div>'
+      ].join(''), 
+      colors: {
+        primary: "#8490ff",
+        background: "#eee"
+      },
+      size: "large"
+      
+    });
+
+      $(".skill2").DonutWidget({
+
+        // these are default options
+        max: 100, 
+        value: 95, 
+        text: "", 
+        rotate: 0, 
+        caption: "", 
+        template: [
+          '<div class="donut-hole"><span class="donut-filling"></div>', 
+          '<div class="donut-bite" data-segment-index="0"></div>', 
+          '<div class="donut-bite" data-segment-index="1"></div>', 
+          '<div class="donut-caption-wrapper"><span class="donut-caption"></span></div>'
+        ].join(''), 
+        colors: {
+          primary: "#8490ff",
+          background: "#eee"
+        },
+        size: "large"
+        
+      });
+
+      $(".skill3").DonutWidget({
+
+        // these are default options
+        max: 100, 
+        value: 85, 
+        text: "", 
+        rotate: 0, 
+        caption: "", 
+        template: [
+          '<div class="donut-hole"><span class="donut-filling"></div>', 
+          '<div class="donut-bite" data-segment-index="0"></div>', 
+          '<div class="donut-bite" data-segment-index="1"></div>', 
+          '<div class="donut-caption-wrapper"><span class="donut-caption"></span></div>'
+        ].join(''), 
+        colors: {
+          primary: "#8490ff",
+          background: "#eee"
+        },
+        size: "large"
+        
+      });            
+
+      $(document).ready(function() {
+          $('#mc_embed_signup').find('form').ajaxChimp();
+      });   
+
+ });
