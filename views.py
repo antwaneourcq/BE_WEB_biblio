@@ -40,12 +40,15 @@ def reservation():
 
 
 #suite des routes encore non utilisées
-@app.route('/commentaires')
-def comment():
+@app.route('/tous_les_commentaires')
+def tous_les_commentaires():
     msg = functions.msg_info(request.args)  # message d'info pour ajout ou suppression des commentaires
     comments = bdd.get_allCommentData()
-    return render_template('commentaires.html')#, data=comments, info=msg)
+    return render_template('tous_les_commentaires.html')#, data=comments, info=msg)
 
+@app.route('/commentaires')
+def comment():
+    return render_template('commentaires.html')
 
 @app.route('/formulaire',methods = ['POST', 'GET'])
 def formulaire():

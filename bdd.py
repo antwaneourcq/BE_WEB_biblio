@@ -71,15 +71,14 @@ def get_allCommentData():
 
     try:
         cnx = connexion()
-        print('canal : ', cnx)
         cursor = cnx.cursor()
         sql = "SELECT * FROM commentaires"
         cursor.execute(sql)
         res = convert_dictionnary(cursor)
     except mysql.connector.Error as err:
         res = "Failed get comment data : {}".format(err)
-    #finally:
-    #    close_bd(cursor, cnx)
+    finally:
+        close_bd(cursor, cnx)
     return res
 
 # ajoute un commentaire dans la table commentaire
