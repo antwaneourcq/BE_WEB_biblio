@@ -79,6 +79,7 @@ def get_allCommentData():
         res = "Failed get comment data : {}".format(err)
     finally:
         close_bd(cursor, cnx)
+        print('données : ', res)
     return res
 
 # ajoute un commentaire dans la table commentaire

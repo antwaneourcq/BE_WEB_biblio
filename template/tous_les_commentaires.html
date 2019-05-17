@@ -22,8 +22,8 @@
                 <ol>
                     {% for ligne in data %}
                     <li id="{{ ligne.id_comment}}">
-                        <h6> Commentaire de {{ ligne.nom}} - {{ ligne.email }} </h6>
-                        <i class="fas fa-times"></i><p>{{ ligne.comment }}</p>
+                        <h6> Commentaire de {{ ligne.nom}} - {{ ligne.prenom }} </h6>
+                        <i class="fas fa-times"></i><p>{{ ligne.message }}</p>
                     </li>
                     {% endfor %}
     
