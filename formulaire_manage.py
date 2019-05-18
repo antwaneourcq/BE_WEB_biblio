@@ -1,5 +1,6 @@
 from flask import session
 import bdd
+import SGBD as sgbd
 
 #authentification
 def verif_connect(dataform):
@@ -21,15 +22,16 @@ def verif_connect(dataform):
     return page_redirect
 
 def add_comment(dataform):
+    print("arrivé dans add_comment du formulaire")
     nom = dataform['nom']
+    prenom = dataform['prenom']
     mail = dataform['mail']
     message = dataform['message']
-
     info = "insComment_success"
-    msg = bdd.add_commentData(nom, message, mail)
+    cnx = sgbd.createConnection()
+    msg = sgbd.ajout_commentaire(cnx, nom, prenom, mail, message)
     if msg != "":
         info="insComment_fail"
-
     return info
 
 def del_comment(dataform):
