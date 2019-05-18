@@ -44,7 +44,7 @@ def reservation():
 def tous_les_commentaires():
     msg = functions.msg_info(request.args)  # message d'info pour ajout ou suppression des commentaires
     comments = bdd.get_allCommentData()
-    return render_template('tous_les_commentaires.html')#, data=comments, info=msg)
+    return render_template('tous_les_commentaires.html', data=comments, info=msg)
 
 @app.route('/commentaires')
 def comment():

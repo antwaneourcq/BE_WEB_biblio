@@ -22,11 +22,11 @@ def verif_connect(dataform):
 
 def add_comment(dataform):
     nom = dataform['nom']
-    email = dataform['email']
+    mail = dataform['mail']
     message = dataform['message']
 
     info = "insComment_success"
-    msg = bdd.add_commentData(nom, message, email)
+    msg = bdd.add_commentData(nom, message, mail)
     if msg != "":
         info="insComment_fail"
 
