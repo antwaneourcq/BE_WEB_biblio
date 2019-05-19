@@ -769,7 +769,7 @@ td, th {
 
 .sample-text-area {
   background: #fff;
-  padding: 100px 0 70px 0;
+  padding: 20px 20px 20px 0;
 }
 
 .text-heading {
@@ -1169,6 +1169,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .single-gallery-image {
   margin-top: 30px;
+  margin-left: 10px;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: cover !important;
@@ -2789,7 +2790,7 @@ h6 {
 }
 
 .generic-banner .height {
-  height: 600px;
+  height: 300px;
 }
 
 @media (max-width: 767px) {
