@@ -44,7 +44,7 @@ def reservation():
 def tous_les_commentaires():
     msg = functions.msg_info(request.args)  # message d'info pour ajout ou suppression des commentaires
     comments = bdd.get_allCommentData()
-    return render_template('tous_les_commentaires.html')#, data=comments, info=msg)
+    return render_template('tous_les_commentaires.html', data=comments, info=msg)
 
 @app.route('/commentaires')
 def comment():
@@ -53,14 +53,14 @@ def comment():
 @app.route('/formulaire',methods = ['POST', 'GET'])
 def formulaire():
     button_submit = request.form["btn_submit"]
-
+    print("entrée dans formulaire de views.py")
     if button_submit == "form_connect": # authentification
         page_redirect = formulaire_manage.verif_connect(request.form)
         return redirect(url_for(page_redirect[0], info=page_redirect[1]))
 
     if button_submit == "form_comment": # ajouter un commentaire
         info_add = formulaire_manage.add_comment(request.form)
-        return redirect(url_for("comment", info=info_add))
+        return redirect(url_for("commentaire_recu", info=info_add))
 
     if button_submit == "del_comment": # suppression d'un commentaire
         msg = formulaire_manage.del_comment(request.form)

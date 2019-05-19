@@ -42,9 +42,11 @@
 									<div class="mt-10">
 										<input type="text" name="last_name" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom de famille'" required class="single-input">
 									</div>
+									<!--
 									<div class="mt-10">
 										<input type="text" name="promo" placeholder="Promo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Promo'" required class="single-input">
 									</div>
+									-->
 									<div class="mt-10">
 										<input type="email" name="EMAIL" placeholder="Adresse E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input">
 									</div>
@@ -53,7 +55,7 @@
 										<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Laissez votre message ici'" required></textarea>
 									</div>
 					<div class="button-group-area mt-40">
-						<a href="message_recu.html" class="genric-btn primary e-large"> Envoyer </a>
+						<a href="{{ url_for('message_recu') }}" class="genric-btn primary e-large" input name="ntn_submit" value="form_comment"> Envoyer </a>
 					</div>
 					<br>
 			</div>

@@ -21,6 +21,7 @@ def createConnection():
             print("La Base de données n'existe pas.")
         else:
             print(err)
+    return cnx
 
 def closeConnection(cnx, cursor):
     cursor.close()
@@ -40,16 +41,21 @@ def afficher(cnx, table, elmt="*"):
     #return s ###si besoin de récupérer un jour les données de lecture
 
 def requete_sql(cnx, requete, param):
+    msg = ""
     try :
         cnx.autocommit(False)
         curseur = cnx.cursor()
         curseur.execute(requete, param)
         cnx.commit()
+    except mysql.connector.Error as err:
+        msg = "Failed add_commentData : {}".format(err)
     except Exception as e:
         print(e)
         cnx.rollback()
-    curseur.close()
 
+    curseur.close()
+    print('message de requete : ', msg, ' terminé')
+    return msg
 ### alcove
 
 def ajout_alcove(cnx, continent, ville, couleur, dispo, nb_places, id_espace_actuel):
@@ -228,10 +234,14 @@ def creation_Table_alcove(nom, fichier):
             continent, ville, couleur, dispo, nb_places = line.split(';')
             ajout_alcove(cnx, i, continent, ville, couleur, dispo, nb_places)
 '''
+def ajout_commentaire(cnx, nom, prenom, mail, message):
+    requete = "INSERT INTO commentaires(nom, prenom, mail, message) VALUES(%s,%s,%s,%s);"
+    param = (nom, prenom, mail, message)
+    msg = requete_sql(cnx, requete, param)
+    return msg
 
 def read():
     cnx = createConnection()
-    cursor = cnx.cursor()
     requete = "SELECT * FROM objets_reservables"
     curseur = cnx.cursor()
     curseur.execute(requete)
