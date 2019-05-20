@@ -23,12 +23,13 @@ def verif_connect(dataform):
 
 def add_comment(dataform):
     print("arrivé dans add_comment du formulaire")
-    nom = dataform['nom']
-    prenom = dataform['prenom']
-    mail = dataform['mail']
+    nom = dataform['last_name']
+    prenom = dataform['first_name']
+    mail = dataform['email']
     message = dataform['message']
     info = "insComment_success"
     cnx = sgbd.createConnection()
+    print('formulaire add comment cnx : ', cnx, type(cnx))
     msg = sgbd.ajout_commentaire(cnx, nom, prenom, mail, message)
     if msg != "":
         info="insComment_fail"

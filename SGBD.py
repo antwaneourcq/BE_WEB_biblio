@@ -1,12 +1,13 @@
 import mysql.connector
 from mysql.connector import errorcode
+#from bdd import config 
 config = {
-    'user': 'root',
-    'password': 'mysql',
-    'host': 'localhost',
-    'database': 'bibliotheque',
-    'raise_on_warnings': True #à vérifier si virgule ou pas
-}
+        'user': 'root',
+        'password': '',
+        'host': 'localhost',
+        'database': 'bibliotheque',
+        'raise_on_warnings': True
+    }
 
 ### gestion du sql
 
@@ -43,18 +44,19 @@ def afficher(cnx, table, elmt="*"):
 def requete_sql(cnx, requete, param):
     msg = ""
     try :
-        cnx.autocommit(False)
+        cnx.autocommit = False #cnx.autocommit(False)
         curseur = cnx.cursor()
         curseur.execute(requete, param)
         cnx.commit()
+        curseur.close()
     except mysql.connector.Error as err:
         msg = "Failed add_commentData : {}".format(err)
     except Exception as e:
+        msg = "Failed add_commentData : {}".format(e)
+        print('exception dans requete sql')
         print(e)
         cnx.rollback()
-
-    curseur.close()
-    print('message de requete : ', msg, ' terminé')
+    #print('message de requete : ', msg, ' terminé')
     return msg
 ### alcove
 
