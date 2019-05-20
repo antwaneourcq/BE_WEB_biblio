@@ -4,8 +4,8 @@ import SGBD as sgbd
 
 #authentification
 def verif_connect(dataform):
-    login = dataform['login']
-    mdp = dataform['MDP']
+    login = dataform['id_connexion']
+    mdp = dataform['mdp_connexion']
     res = bdd.authentification(login, mdp)
 
     # authentification réussie - initialisation des sessions
