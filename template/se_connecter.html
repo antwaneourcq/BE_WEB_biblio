@@ -22,20 +22,20 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-8 col-md-8">
-								<form action="#">
+								<form method="post" action="{{ url_for('reservation') }}">
 									<div class="mt-10">
-										<input type="text" name="id" placeholder="Identifiant" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Identifiant'" required class="single-input">
+										<input type="text" name="id_connexion" placeholder="Identifiant" required class="single-input">
 									</div>
 									<div class="mt-10">
-										<input type="password" name="mdp" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'" required class="single-input">
+										<input type="password" name="mdp_connexion" placeholder="Mot de passe" required class="single-input">
 									</div>
-					<div class="button-group-area mt-40">
-						<a href="{{ url_for('reservation') }}" class="genric-btn primary e-large"> Se Connecter </a>
+									<div class="button-group-area mt-40">
+										<button class="genric-btn primary e-large" name="btn_submit" value="form_connect"> Se Connecter </button>
+									</div>
+									<br>
+							</div>
+						</div>
 					</div>
-					<br>
-			</div>
-			</div>
-			</div>
 			<!-- End Align Area -->
 		{% endblock %}
 	</html>

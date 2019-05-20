@@ -53,7 +53,7 @@ def authentification(login,mdp):
     try:
         cnx = connexion()
         cursor = cnx.cursor()
-        sql = "SELECT * FROM identification WHERE login=%s AND mdp=%s LIMIT 1"
+        sql = "SELECT * FROM utilisateurs WHERE mail=%s AND mdp=%s LIMIT 1"
         param = (login, mdp)
         cursor.execute(sql, param)
         res = convert_dictionnary(cursor)
