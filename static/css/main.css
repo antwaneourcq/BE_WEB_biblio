@@ -1074,17 +1074,18 @@ h1, h2, h3, h4, h5, h6 {
 .progress-table {
   background: #f9f9ff;
   padding: 15px 0px 30px 0px;
-  min-width: 800px;
-  margin-left: 50px;
+  margin-left: 300px;
+  width: 900px;
 }
 
 .progress-table .serial {
   width: 11.83%;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
 .progress-table .country {
   width: 28.07%;
+  padding-left: 70px;
 }
 
 .progress-tablie .country1 {
@@ -1142,13 +1143,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .progress-table .table-row .percentage .progress {
-  width: 80%;
+  width: 150px;
   border-radius: 0px;
   background: transparent;
 }
 
 .progress-table .table-row .percentage .progress .progress-bar {
-  height: 5px;
+  height: 15px;
   line-height: 5px;
 }
 
@@ -1180,21 +1181,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: blue;
 }
 
-.progress-table .table-row .percentage .progress .progress-bar.color-7 {
-  background-color: #a367e7;
-}
-
-.progress-table .table-row .percentage .progress .progress-bar.color-8 {
-  background-color: #e66686;
-}
-
 .single-gallery-image {
   margin-top: 30px;
   margin-left: 10px;
+  margin-right: 10px;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: cover !important;
   height: 200px;
+  overflow-x: hidden;
 }
 
 .list-style {
@@ -2621,22 +2616,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-area {
-<<<<<<< HEAD
+
   padding-top: 60px;
-=======
-  padding-top: 1px;
->>>>>>> f0c183a01ca66bd83ad35c159723084a765738b9
   background-color: #222222;
   height: 300px;
   
 }
 
 .footer-area .footer-nav li {
-<<<<<<< HEAD
   margin-top: 4px;
-=======
-  margin-top: 1px;
->>>>>>> f0c183a01ca66bd83ad35c159723084a765738b9
+	
 }
 
 .footer-area .footer-nav li a {
@@ -2874,6 +2863,7 @@ h6 {
 .section-top-border {
   padding: 70px 0;
   border-top: 1px dotted #eee;
+  overflow-x: hidden;
 }
 
 .switch-wrap {
