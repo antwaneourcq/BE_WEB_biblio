@@ -1,4 +1,4 @@
 DEBUG = "TRUE"
 CACHE_TYPE='null'
-SECRET_KEY=''
+SECRET_KEY='tagrossemerejelasoulevetouslessoirs'
 

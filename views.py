@@ -33,7 +33,11 @@ def nos_services():
 @app.route('/se_connecter')
 def se_connecter():
     return render_template('se_connecter.html')
-    
+
+@app.route('/se_deconnecter')
+def se_deconnecter():
+    return render_template('se_deconnecter.html')
+
 @app.route('/reservation')
 def reservation():
     return render_template('reservation.html')
