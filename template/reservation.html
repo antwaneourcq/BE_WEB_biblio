@@ -16,6 +16,35 @@
 				</div>
 			</section>		
 			<!-- End banner Area -->
+		
+		{% if not session.logged_in %}
+		<div class="whole-wrap">
+				<div class="container">
+					<div class="section-top-border">
+						<h3 class="mb-30">Veuillez vous connecter!</h3>
+						<p class="sample-text">Il faut vous <a href={{ url_for('se_connecter') }}>connecter </a> pour pouvoir réserver un espace. </p>
+						<div class="row">
+							<div class="col-md-3">
+								<img src="../static/img/about-bg.png" alt="" class="img-fluid">
+							</div>
+							<div class="col-md-9 mt-sm-20">
+							 Si vous n'avez pas encore de compte ENAC et ne pouvez donc pas vous connecter, vous pouvez:
+								<ul class="unordered-list">
+										<li>Voir <a href="{{ url_for('nos_services') }}"> nos services</a>.</li>
+										<li>Voir <a href="{{ url_for('nos_regles') }}"> nos règles</a>.</li>
+										<li> Visionnez nos <a href="http://bibliotheque.enac.fr/doku.php" target="blank"> ressources disponibles</a>.</li>
+										<li> En apprendre d'avantage sur <a href="http://www.enac.fr/fr/bibliotheque" target="blank">la bibliothèque</a>.</li>
+								</ul>
+								</p>
+							</div>
+						</div>
+					</div>
+					</div>
+					</div>
+		
+		{% else %}
+		
+		
 			<!-- Start Button -->
 			<section class="button-area">
 				<div class="container border-top-generic">
@@ -103,6 +132,6 @@
 							</div>
 						</div>
 			<!-- End Align Area -->
-
+{% endif %}
 {% endblock %}
 	</html>
