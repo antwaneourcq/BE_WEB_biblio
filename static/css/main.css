@@ -1070,14 +1070,12 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 2px solid #8490ff;
 }
 
-.progress-table-wrap {
-  overflow-x: scroll;
-}
 
 .progress-table {
   background: #f9f9ff;
   padding: 15px 0px 30px 0px;
   min-width: 800px;
+  margin-left: 50px;
 }
 
 .progress-table .serial {
@@ -1089,6 +1087,25 @@ h1, h2, h3, h4, h5, h6 {
   width: 28.07%;
 }
 
+.progress-tablie .country1 {
+	color: gray;
+}
+
+.progress-tablie .country2 {
+	color: red;
+}
+
+.progress-tablie .country3 {
+	color: yellow;
+}
+
+.progress-tablie .country4 {
+	color: green;
+}
+
+.progress-tablie .country5 {
+	color: blue;
+}
 .progress-table .visit {
   width: 19.74%;
 }
@@ -1136,27 +1153,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .progress-table .table-row .percentage .progress .progress-bar.color-1 {
-  background-color: #6382e6;
+  background-color: grey;
 }
 
+.progress-table .table-row .serial1 {
+	color: red;
+}
+	
 .progress-table .table-row .percentage .progress .progress-bar.color-2 {
-  background-color: #e66686;
+  background-color: grey;
 }
 
 .progress-table .table-row .percentage .progress .progress-bar.color-3 {
-  background-color: #f09359;
+  background-color: red;
 }
 
 .progress-table .table-row .percentage .progress .progress-bar.color-4 {
-  background-color: #73fbaf;
+  background-color: yellow;
 }
 
 .progress-table .table-row .percentage .progress .progress-bar.color-5 {
-  background-color: #73fbaf;
+  background-color: green;
 }
 
 .progress-table .table-row .percentage .progress .progress-bar.color-6 {
-  background-color: #6382e6;
+  background-color: blue;
 }
 
 .progress-table .table-row .percentage .progress .progress-bar.color-7 {
