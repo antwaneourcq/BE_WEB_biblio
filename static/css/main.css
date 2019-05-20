@@ -2621,12 +2621,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-area {
-  padding-top: 100px;
+  padding-top: 60px;
   background-color: #222222;
+  height: 300px;
+  
 }
 
 .footer-area .footer-nav li {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .footer-area .footer-nav li a {
@@ -2795,11 +2797,14 @@ h6 {
 }
 
 .footer-bottom {
-  padding-top: 80px;
+  padding-top: 30px;
+  background-color: #222
+  
 }
 
 .footer-text a, .footer-text i {
   color: #8490ff;
+  background-color: #222;
 }
 
 .whole-wrap {

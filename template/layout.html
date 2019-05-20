@@ -81,27 +81,26 @@
 	<footer class="footer-area section-gap">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3  col-md-12">
+				<div class="col-lg-8  col-md-12">
 					<div class="single-footer-widget">
 							<li><a href="{{ url_for('index') }}">Accueil</a></li>   
 							<li><a href="{{ url_for('reservation') }}">Réservation</a></li>
 							<li><a href="{{ url_for('comment') }}">Commentaires</a></li>
-							<li><a href="{{ url_for('se_connecter') }}">Se Connecter</a></li>
+							<li>
+											{% if not session.logged_in %}
+											<a href="{{ url_for('se_connecter') }}">
+											Se connecter
+											</a>
+											{% else %}
+											<a href="{{ url_for('se_deconnecter') }}">
+											Se déconnecter
+											</a>
+											{% endif %}
 						</ul>
-					</div>
-				</div>
-
+						<br> </br>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Site réalisé pour la bibliothèque de <a href="http://enac.fr/doku.php" target="_blank">l'ENAC.</a></p>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			</div>
-
-			<div class="row footer-bottom d-flex justify-content-between">
-				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://bibliotheque.enac.fr/doku.php" target="_blank">Colorlib</a></p>
-				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				<div class="col-lg-4 col-sm-12 footer-social">
-					<a href="https://www.facebook.com/enacfrance/" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="https://twitter.com/enacfrance" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="http://enac.fr/" target="_blank"><i class="fa fa-dribbble"></i></a>
-				</div>
 			</div>
 		</div>
 	</footer>
