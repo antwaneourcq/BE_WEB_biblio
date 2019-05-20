@@ -2621,14 +2621,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-area {
+<<<<<<< HEAD
   padding-top: 60px;
+=======
+  padding-top: 1px;
+>>>>>>> f0c183a01ca66bd83ad35c159723084a765738b9
   background-color: #222222;
   height: 300px;
   
 }
 
 .footer-area .footer-nav li {
+<<<<<<< HEAD
   margin-top: 4px;
+=======
+  margin-top: 1px;
+>>>>>>> f0c183a01ca66bd83ad35c159723084a765738b9
 }
 
 .footer-area .footer-nav li a {
@@ -2696,7 +2704,7 @@ h6 {
 @media (max-width: 991px) {
   .footer-social {
     text-align: left;
-    margin-top: 20px;
+    margin-top: 2px;
   }
 }
 
@@ -2734,7 +2742,7 @@ h6 {
 
 .single-footer-widget .info {
   position: absolute;
-  margin-top: 122px;
+  margin-top: 1px;
   color: #fff;
   font-size: 12px;
 }
