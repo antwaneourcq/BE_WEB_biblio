@@ -913,49 +913,49 @@ h1, h2, h3, h4, h5, h6 {
 
 .genric-btn.primary {
   color: #fff;
-  background: #0e61d6;
+  background: #e2260d;
   border: 1px solid transparent;
 }
 
 .genric-btn.primary:hover {
-  color: #0e61d6;
-  border: 1px solid #0e61d6;
+  color: #e2260d;
+  border: 1px solid #e2260d;
   background: #fff;
 }
 
 .genric-btn.primary-border {
-  color: #0e61d6;
-  border: 1px solid #0e61d6;
+  color: #e2260d;
+  border: 1px solid #e2260d;
   background: #fff;
 }
 
 .genric-btn.primary-border:hover {
   color: #fff;
-  background: #0e61d6;
+  background: #e2260d;
   border: 1px solid transparent;
 }
 
 .genric-btn.success {
   color: #fff;
-  background: #fffa00;
+  background: #e2d251;
   border: 1px solid transparent;
 }
 
 .genric-btn.success:hover {
-  color: #fffa00;
-  border: 1px solid #fffa00;
+  color: #e2d251;
+  border: 1px solid #e2d251;
   background: #fff;
 }
 
 .genric-btn.success-border {
-  color: #fffa00;
-  border: 1px solid #fffa00;
+  color: #e2d251;
+  border: 1px solid #e2d251
   background: #fff;
 }
 
 .genric-btn.success-border:hover {
   color: #fff;
-  background: #fffa00;
+  background: #e2d251;
   border: 1px solid transparent;
 }
 
@@ -985,49 +985,49 @@ h1, h2, h3, h4, h5, h6 {
 
 .genric-btn.warning {
   color: #fff;
-  background: #f4e700;
+  background: #1caf5e;
   border: 1px solid transparent;
 }
 
 .genric-btn.warning:hover {
-  color: #f4e700;
-  border: 1px solid #f4e700;
+  color: #1caf5e;
+  border: 1px solid #1caf5e;
   background: #fff;
 }
 
 .genric-btn.warning-border {
-  color: #f4e700;
-  border: 1px solid #f4e700;
+  color: #1caf5e;
+  border: 1px solid #1caf5e;
   background: #fff;
 }
 
 .genric-btn.warning-border:hover {
   color: #fff;
-  background: #f4e700;
+  background: #1caf5e;
   border: 1px solid transparent;
 }
 
 .genric-btn.danger {
   color: #fff;
-  background: #f44a40;
+  background: #afa7a0;
   border: 1px solid transparent;
 }
 
 .genric-btn.danger:hover {
-  color: #f44a40;
-  border: 1px solid #f44a40;
+  color: #afa7a0;
+  border: 1px solid #afa7a0;
   background: #fff;
 }
 
 .genric-btn.danger-border {
-  color: #f44a40;
-  border: 1px solid #f44a40;
+  color: #afa7a0;
+  border: 1px solid #afa7a0;
   background: #fff;
 }
 
 .genric-btn.danger-border:hover {
   color: #fff;
-  background: #f44a40;
+  background: #afa7a0;
   border: 1px solid transparent;
 }
 
