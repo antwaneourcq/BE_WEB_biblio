@@ -19,6 +19,8 @@
 			</section>		
 		<!-- End banner Area -->
 		<!-- Start Align Area -->
+
+		{% if not session.logged_in %}
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-8 col-md-8">
@@ -37,6 +39,12 @@
 							</div>
 						</div>
 					</div>
+			
+			{% else %}
+			<section class="sample-text-area">
+				<div class="container">
+					<h3 class="text-heading"> Vous êtes déjà connecté </h3>								
+			{% endif %}
 			<!-- End Align Area -->
 		{% endblock %}
 	</html>
