@@ -23,6 +23,14 @@ def verif_connect(dataform):
 
     return page_redirect
 
+def approve_deconnect():
+    try:
+        session["logged_in"] = 0
+        page_redirect = ["index", "dec_success"]
+    except:
+        page_redirect = ["se_deconnecter", "dec_fail"]
+    return page_redirect
+
 def add_comment(dataform):
     print("arrivé dans add_comment du formulaire")
     nom = dataform['last_name']

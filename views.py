@@ -36,7 +36,9 @@ def se_connecter():
 
 @app.route('/se_deconnecter')
 def se_deconnecter():
-    return render_template('se_deconnecter.html')
+    #en s'inspirant du formulaire
+    page_redirect = formulaire_manage.approve_deconnect()
+    return redirect(url_for(page_redirect[0], info=page_redirect[1]))
 
 @app.route('/reservation')
 def reservation():
@@ -56,12 +58,9 @@ def comment():
 
 @app.route('/formulaire', methods = ['POST', 'GET'])
 def formulaire():
-    print("entrée dans formulaire")
     button_submit = request.form["btn_submit"]
     if button_submit == "form_connect": # authentification
-        print('avant la redirection')
         page_redirect = formulaire_manage.verif_connect(request.form)
-        print('normalement ça marche la connexion')
         return redirect(url_for(page_redirect[0], info=page_redirect[1]))
 
     if button_submit == "form_comment": # ajouter un commentaire

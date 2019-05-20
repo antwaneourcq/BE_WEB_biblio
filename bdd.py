@@ -63,6 +63,16 @@ def authentification(login,mdp):
         close_bd(cursor, cnx)
     return res
 
+def deconnexion():
+    try:
+        cnx = connexion()
+        cursor = cnx.cursor()
+        
+    except mysql.connector.Error as err:
+        res = "Failed deconnexion : {}".format(err)
+    finally:
+        close_bd(cursor, cnx)
+    return res
 
 ###suite à adapter pour nos tables
 
