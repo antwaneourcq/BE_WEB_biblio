@@ -50,17 +50,16 @@ def tous_les_commentaires():
 def comment():
     return render_template('commentaires.html')
 
-@app.route('/formulaire',methods = ['POST', 'GET'])
+@app.route('/formulaire', methods = ['POST', 'GET'])
 def formulaire():
     button_submit = request.form["btn_submit"]
-    print("entrée dans formulaire de views.py")
     if button_submit == "form_connect": # authentification
         page_redirect = formulaire_manage.verif_connect(request.form)
         return redirect(url_for(page_redirect[0], info=page_redirect[1]))
 
     if button_submit == "form_comment": # ajouter un commentaire
         info_add = formulaire_manage.add_comment(request.form)
-        return redirect(url_for("commentaire_recu", info=info_add))
+        return redirect(url_for("message_recu", info=info_add))
 
     if button_submit == "del_comment": # suppression d'un commentaire
         msg = formulaire_manage.del_comment(request.form)

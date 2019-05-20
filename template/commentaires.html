@@ -34,12 +34,12 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-8 col-md-8">
-								<form action="#">
+								<form method="post" action="{{ url_for('formulaire') }}">
 									<div class="mt-10">
-										<input type="text" name="first_name" placeholder="Prénom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'" required class="single-input">
+										<input type="text" name="first_name" placeholder="Prénom" required class="single-input">
 									</div>
 									<div class="mt-10">
-										<input type="text" name="last_name" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom de famille'" required class="single-input">
+										<input type="text" name="last_name" placeholder="Nom" required class="single-input">
 									</div>
 									<!--
 									<div class="mt-10">
@@ -47,18 +47,19 @@
 									</div>
 									-->
 									<div class="mt-10">
-										<input type="email" name="EMAIL" placeholder="Adresse E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input">
+										<input type="email" name="email" placeholder="Adresse E-Mail" required class="single-input">
 									</div>
 													
 									<div class="mt-10">
-										<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Laissez votre message ici'" required></textarea>
+										<textarea class="single-textarea" name='message' placeholder="Message" required></textarea>
 									</div>
-					<div class="button-group-area mt-40">
-						<a href="{{ url_for('message_recu') }}" class="genric-btn primary e-large" input name="ntn_submit" value="form_comment"> Envoyer </a>
+									<div class="button-group-area mt-40">
+										<button class="genric-btn primary e-large" name="btn_submit" value="form_comment"> Envoyer </button>
+									</div>
+								</form>
+							<br>
+							</div>
 					</div>
-					<br>
-			</div>
-			</div>
 			</div>
 			<!-- End Align Area -->
 		{% endblock %}
