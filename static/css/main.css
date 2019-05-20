@@ -2621,12 +2621,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-area {
-  padding-top: 100px;
+  padding-top: 1px;
   background-color: #222222;
 }
 
 .footer-area .footer-nav li {
-  margin-top: 8px;
+  margin-top: 1px;
 }
 
 .footer-area .footer-nav li a {
@@ -2694,7 +2694,7 @@ h6 {
 @media (max-width: 991px) {
   .footer-social {
     text-align: left;
-    margin-top: 20px;
+    margin-top: 2px;
   }
 }
 
@@ -2732,7 +2732,7 @@ h6 {
 
 .single-footer-widget .info {
   position: absolute;
-  margin-top: 122px;
+  margin-top: 1px;
   color: #fff;
   font-size: 12px;
 }
