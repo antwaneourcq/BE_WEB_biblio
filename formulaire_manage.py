@@ -7,18 +7,28 @@ def verif_connect(dataform):
     login = dataform['id_connexion']
     mdp = dataform['mdp_connexion']
     res = bdd.authentification(login, mdp)
-
+    print(res)
+    print('avant try de l authentification')
     # authentification réussie - initialisation des sessions
     try:
-        session["id"] = res[0]["id_user"]
+        session["id"] = res[0]["id_utilisateur"]
         session["nom"] = res[0]["nom"]
         session["prenom"] = res[0]["prenom"]
+        #session["mail"] = res[0][mail] utilisé pour se conneter avant donc en soi inutile
         session["logged_in"] = 1
-        page_redirect = ["index", "auth_success"]
+        page_redirect = ["reservation", "auth_success"]
     except (KeyError, IndexError): #as e:
         # echec d' authentification
-        page_redirect = ["login", "auth_fail"]
+        page_redirect = ["se_connecter", "auth_fail"]
 
+    return page_redirect
+
+def approve_deconnect():
+    try:
+        session["logged_in"] = 0
+        page_redirect = ["index", "dec_success"]
+    except:
+        page_redirect = ["se_deconnecter", "dec_fail"]
     return page_redirect
 
 def add_comment(dataform):
