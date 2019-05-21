@@ -37,7 +37,7 @@
 				</div>
 			</section>
 				<div class="section-top-border">
-						<h3 class="mb-30">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Table</h3>
+						<h3 class="mb-30">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Informations sur les espaces de travail </h3>
 							<div class="progress-table">
 								<div class="table-head">
 									<div class="serial">Espace</div>
@@ -106,19 +106,21 @@
 					<div class="section-top-border">
 						<div class="row gallery-item">
 							<div class="col-md-4">
-								<a href="../static/img/elements/g1.jpg" target="_blank"><div class="single-gallery-image" style="background: url(../static/img/elements/g1.jpg);"></div></a>
+								<a href="../static/img/elements/g1.jpg" target="_blank"><h3 class="text-center">Océanie</h3><div class="single-gallery-image" style="background: url(../static/img/elements/g1.jpg);"></div></a>
 							</div>
 							<div class="col-md-4">
-								<a href="../static/img/elements/g2.jpg" target="_blank"><div class="single-gallery-image" style="background: url(../static/img/elements/g2.jpg);"></div></a>
+								<a href="../static/img/elements/g2.jpg" target="_blank"><h3 class="text-center">Amérique</h3><div class="single-gallery-image" style="background: url(../static/img/elements/g2.jpg);"></div></a>
 							</div>
 							<div class="col-md-4">
-								<a href="../static/img/elements/g3.jpg" target="_blank"><div class="single-gallery-image" style="background: url(../static/img/elements/g3.jpg);"></div></a>
+								<a href="../static/img/elements/g3.jpg" target="_blank"><h3 class="text-center">Europe</h3><div class="single-gallery-image" style="background: url(../static/img/elements/g3.jpg);"></div></a>
+							</div>
+						
+							<div class="col-md-6">
+							<br>
+								<a href="../static/img/elements/g4.jpg" target="_blank"><h3 class="text-center">Afrique</h3><div class="single-gallery-image" style="background: url(../static/img/elements/g4.jpg);"></div></a>
 							</div>
 							<div class="col-md-6">
-								<a href="../static/img/elements/g4.jpg" target="_blank"><div class="single-gallery-image" style="background: url(../static/img/elements/g4.jpg);"></div></a>
-							</div>
-							<div class="col-md-6">
-								<a href="../static/img/elements/g5.jpg" target="_blank"><div class="single-gallery-image" style="background: url(../static/img/elements/g5.jpg);"></div></a>
+								<a href="../static/img/elements/g5.jpg" target="_blank"><h3 class="text-center">Asie</h3><div class="single-gallery-image" style="background: url(../static/img/elements/g5.jpg);"></div></a>
 							</div>
 							<div class="col-md-4">
 								<a href="img/elements/g6.jpg" class="img-pop-up"><div class="single-gallery-image" style="background: url(img/elements/g6.jpg);"></div></a>

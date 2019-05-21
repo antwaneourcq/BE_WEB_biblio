@@ -11,11 +11,14 @@ config = {
     }
 
 
+
 #connexion au serveur de la base de données
 def connexion():
     cnx = ""
+    
     try:
         cnx = mysql.connector.connect(**config)
+        print('CANAL TENTATIVE:',cnx)
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Mauvais login ou mot de passe")
@@ -23,6 +26,8 @@ def connexion():
             print("La Base de données n'existe pas.")
         else:
             print(err)
+    if not cnx:
+        print("canal vide")
     return cnx
 
 
@@ -52,15 +57,18 @@ def authentification(login,mdp):
 
     try:
         cnx = connexion()
+        print('coucou ', cnx)
         cursor = cnx.cursor()
+        print('hallo ', cursor)
         sql = "SELECT * FROM utilisateurs WHERE mail=%s AND mdp=%s LIMIT 1"
         param = (login, mdp)
         cursor.execute(sql, param)
         res = convert_dictionnary(cursor)
+        close_bd(cursor, cnx)
     except mysql.connector.Error as err:
         res = "Failed authentification : {}".format(err)
-    finally:
-        close_bd(cursor, cnx)
+    #finally:
+    #close_bd(cursor, cnx)
     return res
 
 def deconnexion():
