@@ -78,7 +78,6 @@ def deconnexion():
 
 # récupère toutes les données de la table commentaire
 def get_allCommentData():
-
     try:
         cnx = connexion()
         cursor = cnx.cursor()
@@ -122,3 +121,17 @@ def del_commentData(id_comment):
     finally:
         close_bd(cursor, cnx)
     return msg
+
+def get_allProbleme():
+    try:
+        cnx = connexion()
+        cursor = cnx.cursor()
+        sql = "SELECT * FROM problemes"
+        cursor.execute(sql)
+        res = convert_dictionnary(cursor)
+    except mysql.connector.Error as err:
+        res = "Failed get problems data : {}".format(err)
+    finally:
+        close_bd(cursor, cnx)
+        print('données : ', res)
+    return res

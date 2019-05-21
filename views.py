@@ -80,6 +80,11 @@ def formulaire():
         info_add = formulaire_manage.add_reservation(request.form)
         return redirect(url_for("reservation_confirmee"), info=info_add)
 
+@app.route('/problemes_courants')
+def problemes_courants():
+    msg = functions.msg_info(request.args)
+    problemes = bdd.get_allProbleme()
+    return render_template("problemes_courants.html", data = problemes, info=msg)
 
 @app.route('/login')
 def login():

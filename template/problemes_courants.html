@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+
+{% block title %} Problèmes actuels !!! {% endblock %}
+
+{% block content %}
+    <section class="generic-banner relative">			
+        <div class="container">
+            <div class="row height align-items-center justify-content-center">
+                <div class="col-lg-10">
+                    <div class="generic-banner-content">
+                        <h2 class="text-white">Problèmes actuels</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problemes">
+
+            <ol>
+                {% for ligne in data %}
+                <li id="{{ ligne.id_probleme }}">
+                    <h5> {{ ligne.type }} - {{ ligne.debut }} - {{ ligne.fin }} </h5>
+                    <i class="sample-text-area"></i><p>{{ ligne.message }}</p>
+                </li>
+                {% endfor %}
+            </ol>
+    </section>
+{% endblock %}
