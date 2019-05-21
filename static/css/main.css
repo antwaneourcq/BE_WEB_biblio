@@ -1966,7 +1966,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .p1-gradient-bg,   .donut-widget[data-chart-instance="1"] .donut-bite[data-segment-index="0"].large::after, .donut-widget[data-chart-instance="2"] .donut-bite[data-segment-index="0"].large::after, .donut-widget[data-chart-instance="3"] .donut-bite[data-segment-index="0"].large::after, .testimonial-area .overlay-bg, .footer-social a:hover, .single-footer-widget .bb-btn, .generic-banner {
-  background-image: url(../img/about-bg.jpg) }
+  background-image: url(../img/about-bg.jpg);
+  width: 100%
+   }
 
 .p1-gradient-color,.header-btn,  .sigle-service:hover .lnr, .single-blog h4:hover,.primary-btn2:hover,.primary-btn, {
   background: -moz-linear-gradient(0deg, #908ced 0%, #b56fe8 100%);
