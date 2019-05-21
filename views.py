@@ -56,6 +56,10 @@ def tous_les_commentaires():
 def comment():
     return render_template('commentaires.html')
 
+@app.route('/reservation_confirmee')
+def reservation_confirmee():
+    return render_template('reservation_confirmee.html')
+
 @app.route('/formulaire', methods = ['POST', 'GET'])
 def formulaire():
     button_submit = request.form["btn_submit"]
@@ -70,6 +74,10 @@ def formulaire():
     if button_submit == "del_comment": # suppression d'un commentaire
         msg = formulaire_manage.del_comment(request.form)
         return functions.switch_msg(msg)
+
+    if button_submit == "form_reservation":
+        info_add = formulaire_manage.add_reservation(request.form)
+        return redirect(url_for("reservation_confirmee"), info=info_add)
 
 
 @app.route('/login')

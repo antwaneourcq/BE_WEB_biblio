@@ -66,7 +66,7 @@
 						<div class="row">
 							<div class="col-lg-8 col-md-8">
 								<h3 class="mb-30">Form Element</h3>
-								<form action="#">
+								<form method="post" action="{{ url_for('formulaire') }}">
 									<div class="mt-10">
 										<input type="text" name="first_name" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required class="single-input">
 									</div>
@@ -126,6 +126,9 @@
 									</div>
 									<div class="mt-10">
 										<input type="text" name="first_name" placeholder="Secondary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Secondary color'" required class="single-input-secondary">
+									</div>
+									<div class="button-group-area mt-40">
+										<button class="genric-btn primary e-large" name="btn_submit" value="form_reservation"> Réserver </button>
 									</div>
 								</form>
 							</div>

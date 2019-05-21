@@ -383,6 +383,7 @@ td, th {
 }
 
 .mb-30 {
+  /*margin-left: 30 px;*/ 
   margin-bottom: 30px;
 }
 
@@ -2857,7 +2858,7 @@ h6 {
 }
 
 .section-top-border {
-  padding: 70px 0;
+  padding: 70px; /*0; supprimé pour le formulaire de reservation*/
   border-top: 1px dotted #eee;
 }
 
