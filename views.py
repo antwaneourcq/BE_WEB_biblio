@@ -80,6 +80,7 @@ def reservation_confirmee():
 def formulaire():
     button_submit = request.form["btn_submit"]
     if button_submit == "form_connect": # authentification
+        print('formulaire debut connexion')
         page_redirect = formulaire_manage.verif_connect(request.form)
         return redirect(url_for(page_redirect[0], info=page_redirect[1]))
 
