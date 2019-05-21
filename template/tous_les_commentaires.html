@@ -21,9 +21,10 @@
 
                 <ol>
                     {% for ligne in data %}
+                    <br>
                     <li id="{{ ligne.id_comment}}">
-                        <h5> Commentaire de {{ ligne.nom}} - {{ ligne.prenom }} - {{ ligne.mail }} </h5>
-                        <i class="sample-text-area"></i><p>{{ ligne.message }}</p>
+                        <h7> <b>Commentaire de {{ ligne.nom}} {{ ligne.prenom }} - {{ ligne.mail }}</b> </h7>
+                        <p class="ml-50">{{ ligne.message }}</p>
                     </li>
                     {% endfor %}
     
