@@ -43,6 +43,22 @@ def se_deconnecter():
 @app.route('/reservation')
 def reservation():
     return render_template('reservation.html')
+    
+@app.route('/cv_CA')
+def cv_CA():
+    return render_template('cv_CA.html')
+    
+@app.route('/cv_LD')
+def cv_LD():
+    return render_template('cv_LD.html')
+
+@app.route('/cv_AL')
+def cv_AL():
+    return render_template('cv_AL.html')
+
+@app.route('/cv_DL')
+def cv_DL():
+    return render_template('cv_DL.html')
 
 
 #suite des routes encore non utilisées
