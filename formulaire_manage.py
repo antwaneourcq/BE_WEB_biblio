@@ -100,3 +100,6 @@ def add_reservation(dataform):
     if msg != "":
         info="insReservation_fail"
     return info
+
+def get_mail_utilisateur():
+    return session["mail"]
