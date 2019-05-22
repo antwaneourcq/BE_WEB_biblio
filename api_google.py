@@ -12,9 +12,10 @@ import SGBD
 id_objet_reservable = 1
 
 def get_id_utilisateur(mail):
-    SGBD.createConnection()
-
-    SGBD.closeConnection()
+    #à coder (voir si on garde le mail)
+    #SGBD.createConnection()
+    id_utilisateur = 666
+    #SGBD.closeConnection()
     return id_utilisateur
 
 #id_utilisateur = get_id_utilisateur()
@@ -77,21 +78,25 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
         'location': '',
         'description': promo + str(nb_pers),
         'start': {
-            'dateTime': date + 'T' + heure_debut + '+02:00',
+            'dateTime': date + 'T' + heure_debut + ':00+02:00',
             'timeZone': 'Europe/Paris',
         },
         'end': {
-            'dateTime': date + 'T' + heure_fin + '+02:00',
+            'dateTime': date + 'T' + heure_fin + ':00+02:00',
             'timeZone': 'Europe/Paris',
 
         },
     }
     event = service.events().insert(calendarId='primary', body=event).execute()
     print('Event created: %s' % (event.get('htmlLink')))
+    ### voir si on garde le mail 
+    mail = 'test@h.fr'
+    id_utilisateur = get_id_utilisateur(mail)
+    
     ###partie base de donnée
     cnx = SGBD.createConnection()
     msg = SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)
-    SGBD.closeConnection()
+    SGBD.closeConnection(cnx, cnx.cursor()) #a rendre plus joli
     return msg
 
 

@@ -94,7 +94,7 @@ def formulaire():
 
     if button_submit == "form_reservation":
         info_add = formulaire_manage.add_reservation(request.form)
-        return redirect(url_for("reservation_confirmee"), info=info_add)
+        return redirect(url_for("reservation_confirmee", info=info_add))
 
 @app.route('/problemes_courants')
 def problemes_courants():
