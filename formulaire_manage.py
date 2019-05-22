@@ -35,6 +35,13 @@ def calendar_selected(name):
         return "calendar_to_choose"
     return "calendar_success"
 
+def session_is_admin(id):
+    try:
+        session["is_admin"] = bdd.is_admin(id)
+    except:
+        session["is_admin"] = 0
+    return session["is_admin"]
+
 #authentification
 def verif_connect(dataform):
     print('session : ', session)
@@ -52,10 +59,12 @@ def verif_connect(dataform):
         #session["mail"] = res[0][mail] utilisé pour se conneter avant donc en soi inutile
         session["logged_in"] = 1
         page_redirect = ["reservation", "auth_success"]
+        session_is_admin(session["id"])
+        print("type de id : ", type(session["id"]))
     except (KeyError, IndexError): #as e:
         # echec d' authentification
         page_redirect = ["se_connecter", "auth_fail"]
-
+    print("session après connexion : ", session)
     return page_redirect
 
 def approve_deconnect():
