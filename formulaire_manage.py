@@ -1,5 +1,5 @@
 from flask import session
-import bdd
+import bdd, api_google
 import SGBD as sgbd
 
 #authentification
@@ -51,6 +51,18 @@ def del_comment(dataform):
     res = bdd.del_commentData(idC)
     if res != "":
         msg = "delComment_success"
-
     return msg
 
+def add_reservation(dataform):
+    print("arrivé dans add_reservation du formulaire")
+    date = dataform['date']
+    heure_debut = dataform['h_debut']
+    heure_fin = dataform['h_fin']
+    promo = dataform['promo']
+    nb_pers = dataform['nb_pers']
+    info = "insComment_success"
+    #cnx = sgbd.createConnection()
+    msg = api_google.creer_event(date, heure_debut, heure_fin, promo, nb_pers)
+    if msg != "":
+        info="insReservation_fail"
+    return info
