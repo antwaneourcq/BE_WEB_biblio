@@ -322,8 +322,27 @@ td, th {
   margin-left: 30px;
 }
 
+.ml-40 {
+  margin-left: 40px;
+}
 .ml-50 {
   margin-left: 50px;
+}
+
+.ml-70 {
+  margin-left: 70px;
+}
+
+.ml-90 {
+  margin-left: 90px;
+}
+
+.ml-120 {
+  margin-left: 120px;
+}
+
+.ml-150 {
+  margin-left: 150px;
 }
 
 .mr-0 {
@@ -773,6 +792,11 @@ td, th {
   padding: 20px 20px 20px 0;
 }
 
+.sample-text-area {
+  background: #fff;
+  padding: 20px 20px 20px 0;
+  margin-left: 30px
+}
 .text-heading {
   margin-bottom: 30px;
   font-size: 24px;
@@ -805,6 +829,13 @@ h5 {
 h6 {
   font-size: 14px;
 }
+
+h7 {
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5em;
@@ -914,119 +945,143 @@ h1, h2, h3, h4, h5, h6 {
 
 .genric-btn.primary {
   color: #fff;
-  background: #e2260d;
+  background: #e1c0f9;
   border: 1px solid transparent;
 }
 
 .genric-btn.primary:hover {
-  color: #e2260d;
-  border: 1px solid #e2260d;
+  color: #e1c0f9;
+  border: 1px solid #e1c0f9;
   background: #fff;
 }
 
 .genric-btn.primary-border {
-  color: #e2260d;
-  border: 1px solid #e2260d;
+  color: #e1c0f9;
+  border: 1px solid #e1c0f9;
   background: #fff;
 }
 
 .genric-btn.primary-border:hover {
   color: #fff;
-  background: #e2260d;
+  background: #e1c0f9;
   border: 1px solid transparent;
 }
 
-.genric-btn.success {
+.genric-btn.amerique {
   color: #fff;
   background: #e2d251;
   border: 1px solid transparent;
 }
 
-.genric-btn.success:hover {
+.genric-btn.amerique:hover {
   color: #e2d251;
   border: 1px solid #e2d251;
   background: #fff;
 }
 
-.genric-btn.success-border {
+.genric-btn.amerique-border {
   color: #e2d251;
   border: 1px solid #e2d251
   background: #fff;
 }
 
-.genric-btn.success-border:hover {
+.genric-btn.amerique-border:hover {
   color: #fff;
   background: #e2d251;
   border: 1px solid transparent;
 }
 
-.genric-btn.info {
+.genric-btn.afrique {
+  color: #fff;
+  background: #f91a0e;
+  border: 1px solid transparent;
+}
+
+.genric-btn.afrique:hover {
+  color: #f91a0e;
+  border: 1px solid #f91a0e;
+  background: #fff;
+}
+
+.genric-btn.afrique-border {
+  color: #f91a0e;
+  border: 1px solid #f91a0e
+  background: #fff;
+}
+
+.genric-btn.afrique-border:hover {
+  color: #fff;
+  background: #f91a0e;
+  border: 1px solid transparent;
+}
+
+.genric-btn.oceanie {
   color: #fff;
   background: #38a4ff;
   border: 1px solid transparent;
 }
 
-.genric-btn.info:hover {
+.genric-btn.oceanie:hover {
   color: #38a4ff;
   border: 1px solid #38a4ff;
   background: #fff;
 }
 
-.genric-btn.info-border {
+.genric-btn.oceanie-border {
   color: #38a4ff;
   border: 1px solid #38a4ff;
   background: #fff;
 }
 
-.genric-btn.info-border:hover {
+.genric-btn.oceanie-border:hover {
   color: #fff;
   background: #38a4ff;
   border: 1px solid transparent;
 }
 
-.genric-btn.warning {
+.genric-btn.asie {
   color: #fff;
   background: #1caf5e;
   border: 1px solid transparent;
 }
 
-.genric-btn.warning:hover {
+.genric-btn.asie:hover {
   color: #1caf5e;
   border: 1px solid #1caf5e;
   background: #fff;
 }
 
-.genric-btn.warning-border {
+.genric-btn.asie-border {
   color: #1caf5e;
   border: 1px solid #1caf5e;
   background: #fff;
 }
 
-.genric-btn.warning-border:hover {
+.genric-btn.asie-border:hover {
   color: #fff;
   background: #1caf5e;
   border: 1px solid transparent;
 }
 
-.genric-btn.danger {
+.genric-btn.europe {
   color: #fff;
   background: #afa7a0;
   border: 1px solid transparent;
 }
 
-.genric-btn.danger:hover {
+.genric-btn.europe:hover {
   color: #afa7a0;
   border: 1px solid #afa7a0;
   background: #fff;
 }
 
-.genric-btn.danger-border {
+.genric-btn.europe-border {
   color: #afa7a0;
   border: 1px solid #afa7a0;
   background: #fff;
 }
 
-.genric-btn.danger-border:hover {
+.genric-btn.europe-border:hover {
   color: #fff;
   background: #afa7a0;
   border: 1px solid transparent;
@@ -1729,7 +1784,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .confirm-radio input:checked + label {
-  background: url(../img/elements/success-radio.png) no-repeat center center/cover;
+  background: url(../img/elements/amerique-radio.png) no-repeat center center/cover;
   border: none;
 }
 
