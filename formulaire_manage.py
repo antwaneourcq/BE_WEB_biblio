@@ -39,6 +39,7 @@ def verif_connect(dataform):
     print('avant try de l authentification')
     # authentification réussie - initialisation des sessions
     try:
+        session["mail"] = login
         session["id"] = res[0]["id_utilisateur"]
         session["nom"] = res[0]["nom"]
         session["prenom"] = res[0]["prenom"]
