@@ -17,7 +17,7 @@
 				</div>
 			</section>		
 			<!-- End banner Area -->
-		
+		{% if not session.logged_in %}
 		<div class="whole-wrap">
 				<div class="container">
 					<div class="section-top-border">
@@ -42,10 +42,8 @@
 					</div>
 					</div>
 		
-		<!--else-->
-		
-		
-			<!-- Start Button -->
+		{% else %}
+		<!-- Start Button -->
 			<section class="button-area">
 								
 				<div class="container border-top-generic">
@@ -72,27 +70,27 @@
 				{% if session["europe"] %}
 					<div class="container border-top-generic">
 					<h3 class="text-heading ml-70">Calendrier Europe</h3>
-					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=europe.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					<iframe src="https://calendar.google.com/calendar/b/2/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZXVyb3BlLmJpYmxpb3RoZXF1ZS5lbmFjQGdtYWlsLmNvbQ&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23E4C441&amp;color=%230B8043&amp;mode=WEEK&amp;showTitle=1&amp;showNav=1&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 					</div>
 				{% elif session["afrique"] %}
 					<div class="container border-top-generic">
 					<h3 class="text-heading ml-70">Calendrier Afrique</h3>
-					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=afrique.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					<iframe src="https://calendar.google.com/calendar/b/3/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=YWZyaXF1ZS5iaWJsaW90aGVxdWUuZW5hY0BnbWFpbC5jb20&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23E4C441&amp;color=%230B8043&amp;showPrint=0&amp;showCalendars=0&amp;mode=WEEK" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 					</div>
 				{% elif session["amerique"] %}
 					<div class="container border-top-generic">
 					<h3 class="text-heading ml-70">Calendrier Amérique</h3>
-					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=amerique.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					<iframe src="https://calendar.google.com/calendar/b/4/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=YW1lcmlxdWUuYmlibGlvdGhlcXVlLmVuYWNAZ21haWwuY29t&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23E4C441&amp;color=%230B8043&amp;showPrint=0&amp;showCalendars=0&amp;mode=WEEK" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 					</div>
 				{% elif session["asie"] %}
 					<div class="container border-top-generic">
 					<h3 class="text-heading ml-70">Calendrier Asie</h3>
-					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=asie.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					<iframe src="https://calendar.google.com/calendar/b/5/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=YXNpZS5iaWJsaW90aGVxdWUuZW5hY0BnbWFpbC5jb20&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23E4C441&amp;color=%230B8043&amp;showPrint=0&amp;showCalendars=0&amp;mode=WEEK" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 					</div>
 				{% elif session["oceanie"] %}
 					<div class="container border-top-generic">
 					<h3 class="text-heading ml-70">Calendrier Océanie</h3>
-					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=oceanie.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					<iframe src="https://calendar.google.com/calendar/b/6/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=b2NlYW5pZS5iaWJsaW90aGVxdWUuZW5hY0BnbWFpbC5jb20&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23E4C441&amp;color=%230B8043&amp;showPrint=0&amp;showCalendars=0&amp;mode=WEEK" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 					</div>	
 				{% else %}
 					<div class="container border-top-generic">
@@ -149,6 +147,6 @@
 					</div>
 				{% endif %}
 			<!-- End Align Area -->
-
+			{% endif %}
 {% endblock %}
 	</html>
