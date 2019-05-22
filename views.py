@@ -100,6 +100,13 @@ def formulaire():
         info_add = formulaire_manage.add_reservation(request.form)
         return redirect(url_for("reservation_confirmee", info=info_add))
 
+@app.route('/calendar_selection', methods = ['POST', 'GET'])
+def calendar_selection():
+    button_submit = request.form["btn_cal"]
+    #if button_submit == "cal_sel":
+    info = formulaire_manage.calendar_selected(button_submit)
+    return redirect(url_for("reservation", info))
+
 @app.route('/problemes_courants')
 def problemes_courants():
     msg = functions.msg_info(request.args)

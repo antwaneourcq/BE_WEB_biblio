@@ -1,6 +1,13 @@
 from flask import session
 import bdd, api_google
 import SGBD as sgbd
+#print("cal_select : ", session["cal_sel"])
+def calendar_selected(name):
+    try:
+        session["cal_sel"] = name
+    except:
+        return "calendar_to_choose"
+    return "calendar_success"
 
 #authentification
 def verif_connect(dataform):
