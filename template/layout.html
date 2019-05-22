@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="{{ url_for('static',  filename='css/main.css') }}">
 	{% block CSSlink%}{% endblock %}
 	</head>
-
+	
 	<body>
 			<header class="default-header">
 					<nav class="navbar navbar-expand-lg  navbar-light">
@@ -55,10 +55,10 @@
 										</a>
 										<div class="dropdown-menu">
 										<a class="dropdown-item" href="{{ url_for ('tutoriel_utilisation') }}"> Tutoriel d'utilisation </a>
-										<a class="dropdown-item" href="{{ url_for('webmasters') }}">Webmasters</a>
-										
+										<a class="dropdown-item" href="{{ url_for('webmasters') }}">Webmasters</a>										
 										</div>
-									</li>								
+									</li>	
+									{% if not session["is_admin"] %}							
 									<li><a href="{{ url_for('reservation') }}">Réservation</a></li>
 									<li><a href="{{ url_for('comment') }}">Commentaires</a></li>
 									<li>
@@ -72,6 +72,19 @@
 											<!--<button  name="btn_submit" value="form_decnnect"> Se déconnecter </button>class="genric-btn primary e-large"-->
 											
 											{% endif %}
+									{% else %}
+									<li><a href="{{ url_for('reservation') }}">Gestion</a></li>
+									<li><a href="{{ url_for('tous_les_commentaires') }}">Les Commentaires</a></li>
+									<li>
+											{% if not session.logged_in %}
+											<a href="{{ url_for('se_connecter') }}">
+											Se connecter
+											</a>
+											{% else %}
+											<a href="{{ url_for('se_deconnecter') }}"> Se déconnecter </a>
+											{% endif %}
+									{% endif %} 
+									
 									</li>						    					
 								</ul>
 							</div>						
@@ -108,7 +121,7 @@
 											{% endif %}
 						</ul>
 						<br> </br>
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Site réalisé pour la bibliothèque de <a href="http://enac.fr/doku.php" target="_blank">l'ENAC.</a></p>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Site réalisé pour la bibliothèque de <a href="http://enac.fr" target="_blank">l'ENAC.</a></p>
 				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			</div>
 			</div>
