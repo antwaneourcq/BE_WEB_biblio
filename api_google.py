@@ -5,7 +5,7 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-
+from flask import session
 import SGBD
 
 # Alcove Europe - Toulouse - 1 - Grise
@@ -91,8 +91,9 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
     print('Event created: %s' % (event.get('htmlLink')))
     ### voir si on garde le mail 
     mail = 'test@h.fr'
-    id_utilisateur = get_id_utilisateur(mail)
-    
+    #id_utilisateur = get_id_utilisateur(mail)
+    id_utilisateur = session["id"]
+    print("id: ", session['id'], session['mail'])
     ###partie base de donnée
     cnx = SGBD.createConnection()
     msg = SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)

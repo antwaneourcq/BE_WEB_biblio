@@ -54,7 +54,6 @@ def convert_dictionnary(cursor):
 
 # teste l'authentification
 def authentification(login,mdp):
-
     try:
         cnx = connexion()
         print('coucou ', cnx)
@@ -65,6 +64,7 @@ def authentification(login,mdp):
         cursor.execute(sql, param)
         res = convert_dictionnary(cursor)
         close_bd(cursor, cnx)
+        print(res)
     except mysql.connector.Error as err:
         res = "Failed authentification : {}".format(err)
     #finally:
