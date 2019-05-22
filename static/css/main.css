@@ -2915,7 +2915,7 @@ h6 {
 }
 
 .section-top-border {
-  padding: 70px; /*0; supprimé pour le formulaire de reservation*/
+  
   border-top: 1px dotted #eee;
 }
 

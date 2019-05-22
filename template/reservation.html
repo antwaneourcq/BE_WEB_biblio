@@ -76,12 +76,8 @@
 			<!-- Start Align Area -->
 					<div class="section-top-border">
 						<div class="row">
-							<div class="col-lg-8 col-md-8">
-								<h3 class="mb-30 ml-150">Choisissez votre jour et horaire de réservation</h3>
-								<div class="primary-checkbox">
-											<input type="checkbox" id="primary-checkbox" >
-											<label for="primary-checkbox"></label>
-										</div>							
+							<div class="container border-top-generic">
+								<h3 class="text-heading ml-70">Choisissez votre jour et horaire de réservation</h3>
 								<h4 class="mb-30 ml-150">Veuillez accepter <a href="{{ url_for('nos_regles') }}">nos règles </a> avant de réserver</h4>
 								<form method="post" action="{{ url_for('formulaire') }}">
 									<div class="input-group-icon mt-10">
