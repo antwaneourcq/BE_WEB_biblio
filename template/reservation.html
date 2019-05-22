@@ -47,25 +47,26 @@
 		
 			<!-- Start Button -->
 			<section class="button-area">
+								
 				<div class="container border-top-generic">
-					<h3 class="text-heading">Les espaces</h3>
-					<div class="button-group-area mt-40">
+					<h3 class="text-heading ml-70">Les espaces</h3>
+					<div class="button-group-area mt-40 ml-70">
 						<a align='left'>Clique sur un espace pour le visualiser</a>
 						<br>
 						<div align = 'center'>
 						<br>
-						<a href="../static/img/elements/g1.jpg" class="genric-btn primary circle" target="blanck">Afrique</a>
-						<a href="../static/img/elements/g2.jpg" class="genric-btn success circle" target="blanck">Amérique</a>
-						<a href="../static/img/elements/g3.jpg" class="genric-btn warning circle" target="blanck">Asie</a>
-						<a href="../static/img/elements/g4.jpg" class="genric-btn danger circle" target="blanck">Europe</a>
-						<a href="../static/img/elements/g5.jpg" class="genric-btn info circle" target="blanck">Océanie</a>
+						<a href="../static/img/elements/g1.jpg" class="genric-btn afrique circle" target="blanck">Afrique</a>
+						<a href="../static/img/elements/g2.jpg" class="genric-btn amerique circle" target="blanck">Amérique</a>
+						<a href="../static/img/elements/g3.jpg" class="genric-btn asie circle" target="blanck">Asie</a>
+						<a href="../static/img/elements/g4.jpg" class="genric-btn europe circle" target="blanck">Europe</a>
+						<a href="../static/img/elements/g5.jpg" class="genric-btn oceanie circle" target="blanck">Océanie</a>
 						
 						</div>
 						
 					</div>
 				</div>
 				<div class="container border-top-generic">
-				<h3 class="text-heading">Calendrier</h3>
+				<h3 class="text-heading ml-70">Calendrier</h3>
 				<iframe align='center' src="https://calendar.google.com/calendar/embed?src=europe.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
 				</div>
 			</section>
@@ -76,25 +77,32 @@
 					<div class="section-top-border">
 						<div class="row">
 							<div class="col-lg-8 col-md-8">
-								<h3 class="mb-30">Form Element</h3>
+								<h3 class="mb-30 ml-150">Choisissez votre jour et horaire de réservation</h3>
+								<div class="primary-checkbox">
+											<input type="checkbox" id="primary-checkbox" >
+											<label for="primary-checkbox"></label>
+										</div>							
+								<h4 class="mb-30 ml-150">Veuillez accepter <a href="{{ url_for('nos_regles') }}">nos règles </a> avant de réserver</h4>
 								<form method="post" action="{{ url_for('formulaire') }}">
 									<div class="input-group-icon mt-10">
-										<div class="form-select" id="default-select"">
-										<input type="date" id="start" name="trip-start" value="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" min="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" max="document.write(new Date().getFullYear()+2)-document.write(new Date().getMonth())-document.write(new Date().getDate())"> </input>
-										</div>
-									</div>	<br></br>
-									<div class="input-group-icon mt-10">
-										<div class="form-select" id="default-select"">
-											<select>
-												<option value="1">Country</option>
-												<option value="1">Bangladesh</option>
-												<option value="1">India</option>
-												<option value="1">England</option>
-												<option value="1">Srilanka</option>
-											</select>
+										<div class="form-select ml-150" id="default-select">
+										<label for="appt">Choisissez votre jour</label>
+										<input type="date" id="start" name="trip-start" value="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" min="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" max="document.write(new Date().getFullYear()+2)-document.write(new Date().getMonth())-document.write(new Date().getDate())" required> </input>
 										</div>
 									</div>
-									<div class="button-group-area mt-40">
+									<div class="input-group-icon mt-10">
+										<div class="form-select ml-150" id="default-select">
+										<label for="appt">Choisissez votre horaire de début</label>
+										<input type="time" id="hd" name="hd" min="8:30" max="19:00" required> <span class="note">Possible de 8h30 à 19h</span>
+										</div>
+									<div class="input-group-icon mt-10">
+										<div class="form-select ml-150" id="default-select">
+										<label for="appt">Choisissez votre horaire de fin</label>
+										<input type="time" id="hf" name="hf" min="9:00" max="19:30" required> <span class="note">Possible de 9h à 19h30</span>
+										</div>
+										</div>
+									</div>
+									<div class="button-group-area mt-40 ml-150">
 										<button class="genric-btn primary e-large" name="btn_submit" value="form_reservation"> Réserver </button>
 									</div>
 								</form>

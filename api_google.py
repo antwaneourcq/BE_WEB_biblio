@@ -71,9 +71,7 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
-
     service = build('calendar', 'v3', credentials=creds)
-
     event = {
         'summary': 'Occupé',
         'location': '',
@@ -88,12 +86,11 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
 
         },
     }
-
     event = service.events().insert(calendarId='primary', body=event).execute()
     print('Event created: %s' % (event.get('htmlLink')))
     ###partie base de donnée
     cnx = SGBD.createConnection()
-    SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)
+    msg = SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)
     SGBD.closeConnection()
     return msg
 
@@ -122,24 +119,9 @@ def supprimer_event(date, heure_debut, promo):
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
-
-    event = {
-        'summary': 'Occupé',
-        'location': '',
-        'description': promo,
-        'start': {
-            'dateTime': date + 'T' + heure_debut + '+02:00',
-            'timeZone': 'Europe/Paris',
-        },
-        'end': {
-            'dateTime': date + 'T' + heure_fin + '+02:00',
-            'timeZone': 'Europe/Paris',
-
-        },
-    }
-
     event = service.events().insert(calendarId='primary', body=event).execute()
-
+    event_id = get_event_id(id_utilisateur, heure_debut, date)
+    service.events().delete(calendarId = 'primary', eventId=event_id).execute()
 
 def prochains_event():
     creds = None
