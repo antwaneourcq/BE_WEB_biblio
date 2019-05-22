@@ -1,5 +1,8 @@
-- ecrire une fonction get_id_utilisateur qui dès l'appui sur 'se connecter' retourne l'id_utiliseur de celui qui vient de se connecter
-- ecrire une fonction get_event_id(id_utilisateur,heure_debut,date) qui retourne l'id d'un event, comment ? : elle verifie l'egalité des id_utilisateur et des heure_debut et date avec celles sur la base de donnée
+- ecrire une fonction get_id_utilisateur qui dÃ¨s l'appui 
+sur 'se connecter' retourne l'id_utiliseur de celui qui vient de se connecter
 
 
+- ecrire une fonction get_event_id(id_utilisateur,heure_debut,date) qui retourne l'id d'un event, 
+comment ? : elle verifie l'egalitÃ© des id_utilisateur et des heure_debut et date avec celles sur la base de donnï¿½e
 
+espaces qui affichent le calendrier associÃ©
