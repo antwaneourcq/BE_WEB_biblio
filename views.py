@@ -59,6 +59,10 @@ def cv_AL():
 @app.route('/cv_DL')
 def cv_DL():
     return render_template('cv_DL.html')
+    
+@app.route('/tutoriel_utilisation')
+def tutoriel_utilisation():
+    return render_template('tutoriel_utilisation.html')
 
 
 #suite des routes encore non utilisées
