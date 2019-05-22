@@ -56,11 +56,11 @@
 						<form method="post" action="{{ url_for('calendar_selection') }}"> 
 						<div align = 'center'>
 						<br>
-						<button class="genric-btn afrique circle" name="btn_cal" value="afrique">Afrique</button>
-						<button class="genric-btn amerique circle" name="btn_submit" value="cal_select">Amérique</button>
-						<button class="genric-btn asie circle" name="btn_submit" value="cal_select">Asie</button>
-						<button class="genric-btn europe circle" name="btn_submit" value="cal_select">Europe</button>
-						<button class="genric-btn oceanie circle" name="btn_submit" value="cal_select">Océanie</button>
+						<button class="genric-btn afrique circle" name="btn_submit" value="afrique">Afrique</button>
+						<button class="genric-btn amerique circle" name="btn_submit" value="amerique">Amérique</button>
+						<button class="genric-btn asie circle" name="btn_submit" value="asie">Asie</button>
+						<button class="genric-btn europe circle" name="btn_submit" value="europe">Europe</button>
+						<button class="genric-btn oceanie circle" name="btn_submit" value="oceanie">Océanie</button>
 						
 						</div>
 						</form>
@@ -69,29 +69,29 @@
 				</div>
 
 
-				{% if session.calendar == "europe" %}
+				{% if session["europe"] %}
 					<div class="container border-top-generic">
-					<h3 class="text-heading ml-70">Calendrier</h3>
+					<h3 class="text-heading ml-70">Calendrier Europe</h3>
 					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=europe.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
 					</div>
-				{% elif session.calendar == "afrique" %}
+				{% elif session["afrique"] %}
 					<div class="container border-top-generic">
-					<h3 class="text-heading ml-70">Calendrier</h3>
+					<h3 class="text-heading ml-70">Calendrier Afrique</h3>
 					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=afrique.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
 					</div>
-				{% elif session.calendar == "amerique" %}
+				{% elif session["amerique"] %}
 					<div class="container border-top-generic">
-					<h3 class="text-heading ml-70">Calendrier</h3>
+					<h3 class="text-heading ml-70">Calendrier Amérique</h3>
 					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=amerique.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
 					</div>
-				{% elif session.calendar == "asie" %}
+				{% elif session["asie"] %}
 					<div class="container border-top-generic">
-					<h3 class="text-heading ml-70">Calendrier</h3>
+					<h3 class="text-heading ml-70">Calendrier Asie</h3>
 					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=asie.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
 					</div>
-				{% elif session.calendar == "oceanie" %}
+				{% elif session["oceanie"] %}
 					<div class="container border-top-generic">
-					<h3 class="text-heading ml-70">Calendrier</h3>
+					<h3 class="text-heading ml-70">Calendrier Océanie</h3>
 					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=oceanie.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
 					</div>	
 				{% else %}

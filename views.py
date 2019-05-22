@@ -107,10 +107,11 @@ def formulaire():
 
 @app.route('/calendar_selection', methods = ['POST', 'GET'])
 def calendar_selection():
-    button_submit = request.form["btn_cal"]
+    print('formulaire : ', request.form)
+    button_submit = request.form["btn_submit"]
     #if button_submit == "cal_sel":
-    info = formulaire_manage.calendar_selected(button_submit)
-    return redirect(url_for("reservation", info))
+    info_add = formulaire_manage.calendar_selected(button_submit)
+    return redirect(url_for("reservation", info = info_add))
 
 @app.route('/problemes_courants')
 def problemes_courants():

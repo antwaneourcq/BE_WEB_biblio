@@ -1,16 +1,37 @@
 from flask import session
 import bdd, api_google
 import SGBD as sgbd
+
 #print("cal_select : ", session["cal_sel"])
 def calendar_selected(name):
+    session["europe"], session["amerique"], session["asie"], session["afrique"], session["oceanie"] = 0, 0, 0, 0, 0
     try:
-        session["cal_sel"] = name
+        session.calendar = name
+        session["sel_cal"] = name
+        if name == 'europe':
+            session["europe"] = 1
+
+        if name == "afrique":
+            session["afrique"] = 1
+        
+        if name == "amerique":
+            session["amerique"] = 1
+        
+        if name == "asie":
+            session["asie"] = 1
+        
+        if name == "oceanie":
+            session["oceanie"] = 1   
+        
+        print(type(session.calendar), '[' + session.calendar +']')
+        print('session : ', session, '\n session.calendar : ', session.calendar)
     except:
         return "calendar_to_choose"
     return "calendar_success"
 
 #authentification
 def verif_connect(dataform):
+    print('session : ', session)
     login = dataform['id_connexion']
     mdp = dataform['mdp_connexion']
     res = bdd.authentification(login, mdp)
@@ -31,14 +52,17 @@ def verif_connect(dataform):
     return page_redirect
 
 def approve_deconnect():
+    print('session : ', session)
     try:
         session["logged_in"] = 0
         page_redirect = ["index", "dec_success"]
+        session.clear() #à supprimer ensuite
     except:
         page_redirect = ["se_deconnecter", "dec_fail"]
     return page_redirect
 
 def add_comment(dataform):
+    print('session : ', session)
     print("arrivé dans add_comment du formulaire")
     nom = dataform['last_name']
     prenom = dataform['first_name']
@@ -53,6 +77,7 @@ def add_comment(dataform):
     return info
 
 def del_comment(dataform):
+    print('session : ', session)
     msg = "delComment_success"
     idC = dataform["idC"]
     res = bdd.del_commentData(idC)
@@ -61,6 +86,7 @@ def del_comment(dataform):
     return msg
 
 def add_reservation(dataform):
+    print('session : ', session)
     print("arrivé dans add_reservation du formulaire")
     date = dataform['date']
     heure_debut = dataform['h_debut']
