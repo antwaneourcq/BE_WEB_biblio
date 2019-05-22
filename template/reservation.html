@@ -83,20 +83,27 @@
 									<div class="input-group-icon mt-10">
 										<div class="form-select ml-150" id="default-select">
 										<label for="appt">Choisissez votre jour</label>
-										<input type="date" id="start" name="trip-start" value="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" min="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" max="document.write(new Date().getFullYear()+2)-document.write(new Date().getMonth())-document.write(new Date().getDate())" required> </input>
+										<input type="date" id="start" name="date" value="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" min="document.write(new Date().getFullYear())-document.write(new Date().getMonth())-document.write(new Date().getDate())" max="document.write(new Date().getFullYear()+2)-document.write(new Date().getMonth())-document.write(new Date().getDate())" required> </input>
 										</div>
 									</div>
 									<div class="input-group-icon mt-10">
 										<div class="form-select ml-150" id="default-select">
 										<label for="appt">Choisissez votre horaire de début</label>
-										<input type="time" id="hd" name="hd" min="8:30" max="19:00" required> <span class="note">Possible de 8h30 à 19h</span>
+										<input type="time" id="hd" name="h_debut" min="8:30" max="19:00" required> <span class="note">Possible de 8h30 à 19h</span>
 										</div>
 									<div class="input-group-icon mt-10">
 										<div class="form-select ml-150" id="default-select">
 										<label for="appt">Choisissez votre horaire de fin</label>
-										<input type="time" id="hf" name="hf" min="9:00" max="19:30" required> <span class="note">Possible de 9h à 19h30</span>
+										<input type="time" id="hf" name="h_fin" min="9:00" max="19:30" required> <span class="note">Possible de 9h à 19h30</span>
 										</div>
 										</div>
+									</div>
+									<div class="mt-10">
+										<input type="text" name="promo" placeholder="Promo" required class="single-input">
+									</div>
+													
+									<div class="mt-10">
+										<input type="int" name='nb_pers' placeholder="Nombre de personnes" required></textarea>
 									</div>
 									<div class="button-group-area mt-40 ml-150">
 										<button class="genric-btn primary e-large" name="btn_submit" value="form_reservation"> Réserver </button>
