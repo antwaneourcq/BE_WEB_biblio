@@ -28,6 +28,7 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
 def se_connecter():
+
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -51,6 +52,11 @@ def se_connecter():
 
 
 def creer_event(date, heure_debut, heure_fin, promo,nb_pers):
+
+    cnx = SGBD.createConnection()
+    SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)
+    SGBD.closeConnection()
+
     # format 'AAAA-MM-JJ' date
     # format 'HH-MM-SS' heure_d
     creds = None
@@ -91,9 +97,7 @@ def creer_event(date, heure_debut, heure_fin, promo,nb_pers):
 
     event = service.events().insert(calendarId='primary', body=event).execute()
     print('Event created: %s' % (event.get('htmlLink')))
-    cnx = SGBD.createConnection()
-    SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)
-    SGBD.closeConnection()
+
 
 
 def supprimer_event(date, heure_debut, promo):
@@ -177,5 +181,4 @@ def prochains_event():
 
 
 if __name__ == '__main__':
-    # supprimer_event(0,0)
-    prochains_event()
+    pass
