@@ -53,32 +53,67 @@
 					<div class="button-group-area mt-40 ml-70">
 						<a align='left'>Clique sur un espace pour le visualiser</a>
 						<br>
+						<form method="post" action="{{ url_for('calendar_selection') }}"> 
 						<div align = 'center'>
 						<br>
-						<a href="../static/img/elements/g1.jpg" class="genric-btn afrique circle" target="blanck">Afrique</a>
-						<a href="../static/img/elements/g2.jpg" class="genric-btn amerique circle" target="blanck">Amérique</a>
-						<a href="../static/img/elements/g3.jpg" class="genric-btn asie circle" target="blanck">Asie</a>
-						<a href="../static/img/elements/g4.jpg" class="genric-btn europe circle" target="blanck">Europe</a>
-						<a href="../static/img/elements/g5.jpg" class="genric-btn oceanie circle" target="blanck">Océanie</a>
+						<button class="genric-btn afrique circle" name="btn_cal" value="afrique">Afrique</button>
+						<button class="genric-btn amerique circle" name="btn_submit" value="cal_select">Amérique</button>
+						<button class="genric-btn asie circle" name="btn_submit" value="cal_select">Asie</button>
+						<button class="genric-btn europe circle" name="btn_submit" value="cal_select">Europe</button>
+						<button class="genric-btn oceanie circle" name="btn_submit" value="cal_select">Océanie</button>
 						
 						</div>
+						</form>
 						
 					</div>
 				</div>
-				<div class="container border-top-generic">
-				<h3 class="text-heading ml-70">Calendrier</h3>
-				<iframe align='center' src="https://calendar.google.com/calendar/embed?src=europe.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
-				</div>
+
+
+				{% if session.calendar == "europe" %}
+					<div class="container border-top-generic">
+					<h3 class="text-heading ml-70">Calendrier</h3>
+					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=europe.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					</div>
+				{% elif session.calendar == "afrique" %}
+					<div class="container border-top-generic">
+					<h3 class="text-heading ml-70">Calendrier</h3>
+					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=afrique.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					</div>
+				{% elif session.calendar == "amerique" %}
+					<div class="container border-top-generic">
+					<h3 class="text-heading ml-70">Calendrier</h3>
+					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=amerique.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					</div>
+				{% elif session.calendar == "asie" %}
+					<div class="container border-top-generic">
+					<h3 class="text-heading ml-70">Calendrier</h3>
+					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=asie.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					</div>
+				{% elif session.calendar == "oceanie" %}
+					<div class="container border-top-generic">
+					<h3 class="text-heading ml-70">Calendrier</h3>
+					<iframe align='center' src="https://calendar.google.com/calendar/embed?src=oceanie.bibliotheque.enac%40gmail.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> <!-- Calendar creation script -->
+					</div>	
+				{% else %}
+					<div class="container border-top-generic">
+					<h3 class="text-heading ml-70"> Veuillez choisir un calendrier </h3>
+					</div>
+				{% endif %}
+			
+			
 			</section>
 			
 
 			<!-- End Button -->
 			<!-- Start Align Area -->
+				{% if session.calendar %}
 					<div class="section-top-border">
 						<div class="row">
 							<div class="container border-top-generic">
 								<h3 class="text-heading ml-70">Choisissez votre jour et horaire de réservation</h3>
-								<h4 class="mb-30 ml-150">Veuillez accepter <a href="{{ url_for('nos_regles') }}">nos règles </a> avant de réserver</h4>
+								<h4 class="mb-30 ml-150">Veuillez accepter <a href="{{ url_for('nos_regles') }}">nos règles </a> avant de réserver :
+								<input class="primary-checkbox" type="checkbox" id="rules" name="rules" size= 20px><label></label>
+								</h4>
 								<form method="post" action="{{ url_for('formulaire') }}">
 									<div class="input-group-icon mt-10">
 										<div class="form-select ml-150" id="default-select">
@@ -99,19 +134,20 @@
 										</div>
 									</div>
 									<div class="mt-10">
-										<input type="text" name="promo" placeholder="Promo" required class="single-input">
+										<input type="text" name="promo" placeholder="Promo" class="single-input">
 									</div>
 													
 									<div class="mt-10">
-										<input type="int" name='nb_pers' placeholder="Nombre de personnes" required></textarea>
+										<input type="int" name='nb_pers' placeholder="Nombre de personnes"></textarea>
 									</div>
 									<div class="button-group-area mt-40 ml-150">
 										<button class="genric-btn primary e-large" name="btn_submit" value="form_reservation"> Réserver </button>
 									</div>
 								</form>
 							</div>
-							</div>
 						</div>
+					</div>
+				{% endif %}
 			<!-- End Align Area -->
 
 {% endblock %}
