@@ -76,7 +76,7 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
     event = {
         'summary': 'Occupé',
         'location': '',
-        'description': promo + str(nb_pers),
+        'description': session["mail"] + promo + str(nb_pers),
         'start': {
             'dateTime': date + 'T' + heure_debut + ':00+02:00',
             'timeZone': 'Europe/Paris',
@@ -101,10 +101,10 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
     return msg
 
 
-def supprimer_event(date, heure_debut, promo):
+def supprimer_event(date, heure_debut, promo, nb_pers):
     # format 'AAAA-MM-JJ' date
     # format 'HH-MM-SS' heure_d
-    heure_fin = heure_debut
+    #heure_fin = heure_debut
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -123,11 +123,18 @@ def supprimer_event(date, heure_debut, promo):
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
-
+    id_utilisateur = session["id"]
     service = build('calendar', 'v3', credentials=creds)
-    event = service.events().insert(calendarId='primary', body=event).execute()
-    event_id = get_event_id(id_utilisateur, heure_debut, date)
-    service.events().delete(calendarId = 'primary', eventId=event_id).execute()
+    cnx = SGBD.createConnection()
+    id_event = SGBD.get_event_id(cnx, id_utilisateur, heure_debut, date) ###il faut chercher ailleurs, dans l'agenda directement de google...
+    
+    service.events().delete(calendarId = 'primary', eventId=id_event).execute()
+
+    #cnx = SGBD.createConnection()
+    msg = SGBD.suppression_reserver(cnx, id_event)
+    SGBD.closeConnection(cnx, cnx.cursor()) #a rendre plus joli
+    return msg
+
 
 def prochains_event():
     creds = None

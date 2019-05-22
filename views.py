@@ -99,11 +99,17 @@ def formulaire():
 
     if button_submit == "del_comment": # suppression d'un commentaire
         msg = formulaire_manage.del_comment(request.form)
-        return functions.switch_msg(msg)
+        #return functions.switch_msg(msg)
+        return None
 
     if button_submit == "form_reservation":
         info_add = formulaire_manage.add_reservation(request.form)
         return redirect(url_for("reservation_confirmee", info=info_add))
+    
+    if button_submit == "supp_reservation":
+        info_add = formulaire_manage.del_reservation(request.form)
+        #return functions.switch_msg(msg)
+        return redirect(url_for("index", info=info_add))
 
 @app.route('/calendar_selection', methods = ['POST', 'GET'])
 def calendar_selection():

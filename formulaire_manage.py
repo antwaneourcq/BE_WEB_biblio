@@ -28,9 +28,6 @@ def calendar_selected(name):
         if name == "oceanie":
             session["oceanie"] = 1 
             session["calendar"] = 1  
-        
-        print(type(session.calendar), '[' + session.calendar +']')
-        print('session : ', session, '\n session.calendar : ', session.calendar)
     except:
         return "calendar_to_choose"
     return "calendar_success"
@@ -64,7 +61,6 @@ def verif_connect(dataform):
     except (KeyError, IndexError): #as e:
         # echec d' authentification
         page_redirect = ["se_connecter", "auth_fail"]
-    print("session après connexion : ", session)
     return page_redirect
 
 def approve_deconnect():
@@ -72,7 +68,7 @@ def approve_deconnect():
     try:
         session["logged_in"] = 0
         page_redirect = ["index", "dec_success"]
-        session.clear() #à supprimer ensuite
+        session.clear() #suppression de données de navigation après déconnexion
     except:
         page_redirect = ["se_deconnecter", "dec_fail"]
     return page_redirect
@@ -102,16 +98,27 @@ def del_comment(dataform):
     return msg
 
 def add_reservation(dataform):
-    print('session : ', session)
-    print("arrivé dans add_reservation du formulaire")
     date = dataform['date']
     heure_debut = dataform['h_debut']
     heure_fin = dataform['h_fin']
-    promo = dataform['promo']
+    promo = "IENAC18" #dataform['promo']
     nb_pers = dataform['nb_pers']
     info = "insComment_success"
     #cnx = sgbd.createConnection()
     msg = api_google.creer_event(date, heure_debut, heure_fin, promo, nb_pers)
+    if msg != "":
+        info="insReservation_fail"
+    return info
+
+def del_reservation(dataform):
+    date = dataform['date']
+    heure_debut = dataform['h_debut']
+    heure_fin = dataform['h_fin']
+    promo = "IENAC18" #dataform['promo']
+    nb_pers = dataform['nb_pers']
+    info = "insComment_success"
+    #cnx = sgbd.createConnection()
+    msg = api_google.supprimer_event(date, heure_debut, promo, nb_pers)
     if msg != "":
         info="insReservation_fail"
     return info

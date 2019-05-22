@@ -225,7 +225,21 @@ def maj_reserver(cnx, id, date, duree, heure, id_objet_reservable, id_utilisateu
 def suppression_reserver(cnx, id):
     requete = "DELETE FROM reserver WHERE id_reservation = %s;"
     param = (id)
-    requete_sql(cnx, requete, param)
+    msg = requete_sql(cnx, requete, param)
+    return msg
+
+def get_event_id(cnx, id_utilisateur, heure_debut, date):
+    try :
+        curseur = cnx.cursor()
+        requete = "SELECT id_reservation FROM reserver WHERE date = %s, heure_debut = '10:10';"
+        print("requete : ", requete)
+        param = (date,)# heure_debut)
+        curseur.execute(requete, param)
+        id_event = curseur.fetchone()
+    except Exception as e:
+        print("alerte erreur ! : ", e)
+    curseur.close()
+    return id_event
 
 '''
 def creation_Table_alcove(nom, fichier):

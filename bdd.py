@@ -51,6 +51,20 @@ def convert_dictionnary(cursor):
         result.append(tmp)
     return result
 
+def is_admin(id):
+    print('tentative is_admin')
+    try:
+        cnx = connexion()
+        cursor = cnx.cursor()
+        sql = "SELECT COUNT(id_utilisateur) FROM administrateurs WHERE id_utilisateur = %s;"
+        param = (id,)
+        cursor.execute(sql, param)
+        res = convert_dictionnary(cursor)
+        close_bd(cursor, cnx)
+    except mysql.connector.Error as err:
+        res = "Failed authentification : {}".format(err)
+        print("erreur res", res)
+    return res[0]["COUNT(id_utilisateur)"]
 
 # teste l'authentification
 def authentification(login,mdp):
