@@ -4,24 +4,30 @@ import SGBD as sgbd
 
 #print("cal_select : ", session["cal_sel"])
 def calendar_selected(name):
+    session["calendar"] = 0
     session["europe"], session["amerique"], session["asie"], session["afrique"], session["oceanie"] = 0, 0, 0, 0, 0
     try:
         session.calendar = name
         session["sel_cal"] = name
         if name == 'europe':
             session["europe"] = 1
+            session["calendar"] = 1
 
         if name == "afrique":
             session["afrique"] = 1
+            session["calendar"] = 1
         
         if name == "amerique":
             session["amerique"] = 1
+            session["calendar"] = 1
         
         if name == "asie":
             session["asie"] = 1
+            session["calendar"] = 1
         
         if name == "oceanie":
-            session["oceanie"] = 1   
+            session["oceanie"] = 1 
+            session["calendar"] = 1  
         
         print(type(session.calendar), '[' + session.calendar +']')
         print('session : ', session, '\n session.calendar : ', session.calendar)
