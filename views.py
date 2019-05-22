@@ -17,7 +17,12 @@ def index():
 @app.route('/webmasters')
 def webmasters():
     return render_template('webmasters.html')
-
+    
+@app.route('/villes')
+def villes():
+    return render_template('villes.html')
+    
+    
 @app.route('/message_recu')
 def message_recu():
     return render_template('message_recu.html')
