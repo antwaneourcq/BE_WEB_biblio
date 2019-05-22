@@ -26,7 +26,7 @@
                         <h7> <b>Commentaire de {{ ligne.nom}} {{ ligne.prenom }} - {{ ligne.mail }}</b> </h7>
                         <p class="ml-50">{{ ligne.message }}</p>                       
                         <div class="button-group-area mb-10 ml-30">
-										<button class="genric-btn primary medium" style="color: "white" name="btn_submit" value="form_email"> <a href="mailto:{{ ligne.mail }} target="_blank">Répondre à {{ ligne.prenom}} <a></button>
+										<button class="genric-btn primary medium" style="color": "white" name="btn_submit" value="form_email"> <a href="mailto:{{ ligne.mail }}"> Répondre à {{ ligne.prenom}} <a></button>
 								</div>                 
                     </li>
                     {% endfor %}

@@ -11,6 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
+
 html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
@@ -84,7 +85,7 @@ p {
 	color: #444;
 }
 
-#contactDetails ul li a, a[href^=tel] {
+#contactDetails ul li {
 	color: #444; 
 	text-decoration: none;
 	-webkit-transition: all .3s ease-in;
@@ -94,8 +95,18 @@ p {
 	transition: all .3s ease-in;
 }
 
-#contactDetails ul li a:hover { 
-	color: #db49ed;
+a {
+	 color:#3393ff;
+	 text-decoration: none;
+}
+
+a:focus {
+	color:db49ed;
+}
+
+
+#contactDetails ul li { 
+	color: #444;
 }
 
 

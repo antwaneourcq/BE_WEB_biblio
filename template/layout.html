@@ -46,9 +46,19 @@
 										<div class="dropdown-menu">
 										<a class="dropdown-item" href="{{ url_for('nos_services') }}">Nos services</a>
 										<a class="dropdown-item" href="{{ url_for('nos_regles') }}">Nos règles</a>
-										<a class="dropdown-item" href="{{ url_for('webmasters') }}">Webmasters</a>
+										<a class="dropdown-item" href="{{ url_for('villes') }}">Nos villes</a>									
 										</div>
-									</li>				
+									</li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+										Le site
+										</a>
+										<div class="dropdown-menu">
+										<a class="dropdown-item" href="{{ url_for ('tutoriel_utilisation') }}"> Tutoriel d'utilisation </a>
+										<a class="dropdown-item" href="{{ url_for('webmasters') }}">Webmasters</a>
+										
+										</div>
+									</li>								
 									<li><a href="{{ url_for('reservation') }}">Réservation</a></li>
 									<li><a href="{{ url_for('comment') }}">Commentaires</a></li>
 									<li>
