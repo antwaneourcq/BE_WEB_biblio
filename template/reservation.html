@@ -78,7 +78,9 @@
 						<div class="row">
 							<div class="container border-top-generic">
 								<h3 class="text-heading ml-70">Choisissez votre jour et horaire de réservation</h3>
-								<h4 class="mb-30 ml-150">Veuillez accepter <a href="{{ url_for('nos_regles') }}">nos règles </a> avant de réserver</h4>
+								<h4 class="mb-30 ml-150">Veuillez accepter <a href="{{ url_for('nos_regles') }}">nos règles </a> avant de réserver :
+								<input class="primary-checkbox" type="checkbox" id="rules" name="rules" size= 20px><label></label>
+								</h4>
 								<form method="post" action="{{ url_for('formulaire') }}">
 									<div class="input-group-icon mt-10">
 										<div class="form-select ml-150" id="default-select">
