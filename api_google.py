@@ -8,8 +8,8 @@ from google.auth.transport.requests import Request
 from flask import session
 import SGBD
 
-# Alcove Europe - Toulouse - 1 - Grise
-id_objet_reservable = 1
+
+id_objet_reservable = None
 
 def get_id_utilisateur(mail):
     #à coder (voir si on garde le mail)
@@ -24,13 +24,27 @@ def get_id_utilisateur(mail):
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
+
+
 def se_connecter():
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+    filename_token = 'token.pickle'
+    if session['europe']==1:
+        filename_token = "token_europe.pickle"
+    if session["asie"]==1:
+        filename_token = "token_asie.pickle"
+    if session["amerique"]==1:
+        filename_token = "token_amerique.pickle"
+    if session["oceanie"]==1:
+        filename_token = "token_oceanie.pickle"
+    if session["afrique"]==1:
+        filename_token = "token_afrique.pickle"
+
+    if os.path.exists(filename_token):
+        with open(filename_token, 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -41,7 +55,7 @@ def se_connecter():
                 'credentials.json', SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
+        with open(filename_token, 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
@@ -55,8 +69,26 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     # created automatically when the authorization flow completes for the first
     # time.
     print("calendrier sélectionné api : ", calendrier)
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+
+    filename_token = 'token.pickle'
+    if session['europe']==1:
+        filename_token = "token_europe.pickle"
+        id_objet_reservable = 1
+    if session["asie"]==1:
+        filename_token = "token_asie.pickle"
+        id_objet_reservable = 4
+    if session["amerique"]==1:
+        filename_token = "token_amerique.pickle"
+        id_objet_reservable = 3
+    if session["oceanie"]==1:
+        filename_token = "token_oceanie.pickle"
+        id_objet_reservable = 5
+    if session["afrique"]==1:
+        filename_token = "token_afrique.pickle"
+        id_objet_reservable = 2
+
+    if os.path.exists(filename_token):
+        with open(filename_token, 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -67,8 +99,10 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
                 'credentials.json', SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
+        with open(filename_token, 'wb') as token:
             pickle.dump(creds, token)
+
+
     service = build('calendar', 'v3', credentials=creds)
     event = {
         'summary': 'Occupé',
@@ -106,8 +140,21 @@ def supprimer_event(date, heure_debut):
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+
+    filename_token = 'token.pickle'
+    if session['europe']==1:
+        filename_token = "token_europe.pickle"
+    if session["asie"]==1:
+        filename_token = "token_asie.pickle"
+    if session["amerique"]==1:
+        filename_token = "token_amerique.pickle"
+    if session["oceanie"]==1:
+        filename_token = "token_oceanie.pickle"
+    if session["afrique"]==1:
+        filename_token = "token_afrique.pickle"
+
+    if os.path.exists(filename_token):
+        with open(filename_token, 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -118,7 +165,7 @@ def supprimer_event(date, heure_debut):
                 'credentials.json', SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
+        with open(filename_token, 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
@@ -153,8 +200,21 @@ def prochains_event(date,heure_debut):
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+
+    filename_token = 'token.pickle'
+    if session['europe']==1:
+        filename_token = "token_europe.pickle"
+    if session["asie"]==1:
+        filename_token = "token_asie.pickle"
+    if session["amerique"]==1:
+        filename_token = "token_amerique.pickle"
+    if session["oceanie"]==1:
+        filename_token = "token_oceanie.pickle"
+    if session["afrique"]==1:
+        filename_token = "token_afrique.pickle"
+
+    if os.path.exists(filename_token):
+        with open(filename_token, 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -165,7 +225,7 @@ def prochains_event(date,heure_debut):
                 'credentials.json', SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
+        with open(filename_token, 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
@@ -193,5 +253,5 @@ def prochains_event(date,heure_debut):
 
 if __name__ == '__main__':
     se_connecter()
-    #supprimer_event('2019-05-23','14:00')
     # prochains_event('2019-05-23','11:00')
+    se_connecter()
