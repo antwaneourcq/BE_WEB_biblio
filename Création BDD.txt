@@ -1,0 +1,102 @@
+CREATE DATABASE IF NOT EXISTS Bibliotheque;
+USE Bibliotheque;
+CREATE TABLE IF NOT EXISTS Utilisateurs (
+	id_utilisateur INT NOT NULL,
+	nom VARCHAR (15),
+	prenom VARCHAR (15),
+	mail VARCHAR (50),
+	mdp VARCHAR (30),
+	PRIMARY KEY (id_utilisateur)
+) ENGINE=InnoDB CHARSET='utf8';
+
+CREATE TABLE IF NOT EXISTS Eleves (
+	id_utilisateur INT NOT NULL,
+	promotion VARCHAR (10),
+	PRIMARY KEY (id_utilisateur),
+	FOREIGN KEY (id_utilisateur) REFERENCES Utilisateurs(id_utilisateur) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB CHARSET='utf8';
+
+CREATE TABLE IF NOT EXISTS Administrateurs (
+	id_utilisateur INT NOT NULL,
+	PRIMARY KEY (id_utilisateur),
+	FOREIGN KEY (id_utilisateur) REFERENCES Utilisateurs(id_utilisateur) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB CHARSET='utf8';
+
+CREATE TABLE IF NOT EXISTS Alcove (
+	nom_ville VARCHAR (20),
+	couleur VARCHAR (15),
+    nom_continent VARCHAR(30),
+	disponibilite BOOLEAN,
+	nb_places INT NOT NULL,
+	id_espace_actuel INT NOT NULL,
+	PRIMARY KEY (id_espace_actuel)
+) ENGINE=InnoDB CHARSET='utf8';
+
+CREATE TABLE IF NOT EXISTS Reserver (
+	id_reservation INT NOT NULL,
+	date DATE,
+	heure TIME,
+	duree INT,
+	nb_pers INT,
+	PRIMARY KEY (id_reservation)
+) ENGINE=InnoDB CHARSET='utf8';
+
+CREATE TABLE commentaires(
+    id_comment INT NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(20),
+    prenom VARCHAR(30),
+    mail VARCHAR(50),
+    message VARCHAR(400),
+    PRIMARY KEY(id_comment)
+    )ENGINE = InnoDB CHARSET = 'utf8';
+
+INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,nom_continent)
+VALUES ('gris',1,1,10,'Toulouse','Europe');
+
+INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,nom_continent)
+VALUES('rouge',1,2,10,'Abidjan','Afrique');
+
+INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,nom_continent)
+VALUES('jaune',1,3,10,'Brasilia','Amérique');
+
+INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,nom_continent)
+VALUES('vert',1,4,6,'Tiajin','Asie');
+
+INSERT INTO alcove(couleur,disponibilite,id_espace_actuel,nb_places,nom_ville,nom_continent)
+VALUES('bleu',1,5,10,'Nouméa','Océanie');
+
+INSERT INTO utilisateurs(id_utilisateur,nom,prenom,mail,mdp)
+VALUES (1,'Porte','Laurence','laurence.porte@enac.fr', 'portela');
+
+INSERT INTO utilisateurs(id_utilisateur,nom,prenom,mail,mdp)
+VALUES (2,'Puechmorel','Karine','karine.puechmorel@enac.fr', 'puechmorelka');
+
+INSERT INTO utilisateurs(id_utilisateur,nom,prenom,mail,mdp)
+VALUES (3,'Antona','Clotilde','clotilde.antona@alumni.enac.fr', 'antonacl');
+
+INSERT INTO utilisateurs(id_utilisateur,nom,prenom,mail,mdp)
+VALUES (4,'Dubois','Loïc','loic.dubois@alumni.enac.fr', 'duboislo');
+
+INSERT INTO utilisateurs(id_utilisateur,nom,prenom,mail,mdp)
+VALUES (5,'Leclercq','Antoine','antoine.leclercq@alumni.enac.fr', 'leclercqan');
+
+INSERT INTO utilisateurs(id_utilisateur,nom,prenom,mail,mdp)
+VALUES (6,'Louli','Danyl','danyl.louli@alumni.enac.fr', 'loulida');
+
+INSERT INTO administrateurs(id_utilisateur)
+VALUES (1);
+
+INSERT INTO administrateurs(id_utilisateur)
+VALUES (2);
+
+INSERT INTO eleves(id_utilisateur, promotion)
+VALUES (3, 'IENAC18');
+
+INSERT INTO eleves(id_utilisateur, promotion)
+VALUES (4, 'IENAC18');
+
+INSERT INTO eleves(id_utilisateur, promotion)
+VALUES (5, 'IENAC18');
+
+INSERT INTO eleves(id_utilisateur, promotion)
+VALUES (6, 'IENAC18');
