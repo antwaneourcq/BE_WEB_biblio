@@ -2275,7 +2275,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .banner-area .overlay {
   background: #000;
-  opacity: .4;
+  opacity: 0.2;
 }
 
 @media (max-width: 991px) {
