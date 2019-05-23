@@ -101,7 +101,7 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
     return msg
 
 
-def supprimer_event(date, heure_debut, promo, nb_pers):
+def supprimer_event(date, heure_debut):
     # format 'AAAA-MM-JJ' date
     # format 'HH-MM-SS' heure_d
     #heure_fin = heure_debut
@@ -174,5 +174,4 @@ def prochains_event():
 
 
 if __name__ == '__main__':
-    # supprimer_event(0,0)
-    prochains_event()
+    supprimer_event('2019-05-23',)
