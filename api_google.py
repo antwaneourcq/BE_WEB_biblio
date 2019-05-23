@@ -33,17 +33,23 @@ def se_connecter():
     # time.
 
     filename_token = 'token.pickle'
-    
+    credentials = "credentials.json"
+
     if session['europe']==1:
         filename_token = "token_europe.pickle"
+        credentials = "credentials_europe.json"
     elif session["asie"]==1:
         filename_token = "token_asie.pickle"
+        credentials = "credentials_asie.json"
     elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
+        credentials = "credentials_amerique.json"
     elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
+        credentials = "credentials_oceanie.json"
     else:
         filename_token = "token_afrique.pickle"
+        credentials = "credentials_afrique.json"
 
     if os.path.exists(filename_token):
         with open(filename_token, 'rb') as token:
@@ -54,7 +60,7 @@ def se_connecter():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                credentials, SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
         with open(filename_token, 'wb') as token:
@@ -76,18 +82,23 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     if session['europe']==1:
         filename_token = "token_europe.pickle"
         id_objet_reservable = 1
+        credentials = "credentials_europe.json"
     elif session["asie"]==1:
         filename_token = "token_asie.pickle"
         id_objet_reservable = 4
+        credentials = "credentials_asie.json"
     elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
         id_objet_reservable = 3
+        credentials = "credentials_amerique.json"
     elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
         id_objet_reservable = 5
+        credentials = "credentials_oceanie.json"
     else:
         filename_token = "token_afrique.pickle"
         id_objet_reservable = 2
+        credentials = "credentials_afrique.json"
 
     if os.path.exists(filename_token):
         with open(filename_token, 'rb') as token:
@@ -98,7 +109,7 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                credentials, SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
         with open(filename_token, 'wb') as token:
@@ -142,14 +153,19 @@ def supprimer_event(date, heure_debut):
     filename_token = 'token.pickle'
     if session['europe']==1:
         filename_token = "token_europe.pickle"
+        credentials = "credentials_europe.json"
     elif session["asie"]==1:
         filename_token = "token_asie.pickle"
+        credentials = "credentials_asie.json"
     elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
+        credentials = "credentials_amerique.json"
     elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
+        credentials = "credentials_oceanie.json"
     else:
         filename_token = "token_afrique.pickle"
+        credentials = "credentials_afrique.json"
 
     if os.path.exists(filename_token):
         with open(filename_token, 'rb') as token:
@@ -160,7 +176,7 @@ def supprimer_event(date, heure_debut):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                credentials, SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
         with open(filename_token, 'wb') as token:
