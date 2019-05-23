@@ -101,11 +101,12 @@ def add_reservation(dataform):
     date = dataform['date']
     heure_debut = dataform['h_debut']
     heure_fin = dataform['h_fin']
-    promo = "IENAC18" #dataform['promo']
     try:
+        promo = dataform['promo']
         nb_pers = dataform['nb_pers']
     except KeyError:
         nb_pers = 1
+        promo = "Bibliotheque"
     calendrier = session["calendar"]
     print("session pour calendrier : ", session)
     info = "insComment_success"
