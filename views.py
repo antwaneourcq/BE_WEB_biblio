@@ -68,6 +68,10 @@ def cv_DL():
 @app.route('/tutoriel_utilisation')
 def tutoriel_utilisation():
     return render_template('tutoriel_utilisation.html')
+    
+@app.route('/suppression_confirmee')
+def suppression_confirmee():
+    return render_template('suppression_confirmee.html')
 
 
 #suite des routes encore non utilisées
