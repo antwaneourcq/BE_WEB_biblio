@@ -76,13 +76,13 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     if session['europe']==1:
         filename_token = "token_europe.pickle"
         id_objet_reservable = 1
-    if session["asie"]==1:
+    elif session["asie"]==1:
         filename_token = "token_asie.pickle"
         id_objet_reservable = 4
-    if session["amerique"]==1:
+    elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
         id_objet_reservable = 3
-    if session["oceanie"]==1:
+    elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
         id_objet_reservable = 5
     else:
