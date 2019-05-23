@@ -192,5 +192,6 @@ def prochains_event(date,heure_debut):
     return eventId,date,heure_debut
 
 if __name__ == '__main__':
-    supprimer_event('2019-05-23','14:00')
+    se_connecter()
+    #supprimer_event('2019-05-23','14:00')
     # prochains_event('2019-05-23','11:00')
