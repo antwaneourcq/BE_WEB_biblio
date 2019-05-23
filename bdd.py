@@ -132,8 +132,8 @@ def add_commentData(nom, message, email):
 def del_all_commentsData():
     msg = ""
     try:
-        cnx.autocommit(False)
         cnx = connexion()
+        #cnx.autocommit(False)
         cursor = cnx.cursor()
         sql = "DELETE FROM commentaires;"
         cursor.execute(sql)
@@ -142,7 +142,7 @@ def del_all_commentsData():
     except mysql.connector.Error as e:
         msg = "Failed del_comments_all : ".format(e)
     return msg
-    
+
 # supprime un commentaire dans la table commentaire
 def del_commentData(id_comment):
     msg = ""

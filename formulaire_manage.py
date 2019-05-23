@@ -96,8 +96,8 @@ def del_comment(dataform):
     if res != "":
         msg = "delComment_failed"
     return msg
-    
-def del_all_comments(dataform):
+
+def del_all_comments():
     msg = "del_all_comment_success"
     res = bdd.del_all_commentsData()
     if res != "":
