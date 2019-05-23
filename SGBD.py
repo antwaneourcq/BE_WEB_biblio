@@ -210,10 +210,10 @@ def suppression_admin(cnx, id):
     requete_sql(cnx, requete, param)
 
 ### reserver date, duree, heure, id_objet_reservable, id_reservation, id_utilisateur, nb_pers
-
+#utilisé
 def ajout_reserver(cnx, id, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers):
-    requete = "INSERT INTO reserver (id_reservation, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers) VALUES(%s,%s,%s,%s,%s,%s,%s);"
-    param = (id, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers)
+    requete = "INSERT INTO Reserver (date, heure_debut, heure_fin, id_espace_actuel, id_utilisateur, nb_pers) VALUES(%s,%s,%s,%s,%s,%s,%s);"
+    param = (date, heure_debut, heure_fin, id_objet_reservable, id_utilisateur, nb_pers)
     msg = requete_sql(cnx, requete, param)
     return msg
 
@@ -222,18 +222,19 @@ def maj_reserver(cnx, id, date, duree, heure, id_objet_reservable, id_utilisateu
     param = (date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers, id)
     requete_sql(cnx, requete, param)
 
+#a utiliser
 def suppression_reserver(cnx, id):
-    requete = "DELETE FROM reserver WHERE id_reservation = %s;"
+    requete = "DELETE FROM Reserver WHERE id_reservation = %s;"
     param = (id)
     msg = requete_sql(cnx, requete, param)
     return msg
-
+#a utiliser
 def get_event_id(cnx, id_utilisateur, heure_debut, date):
     try :
         curseur = cnx.cursor()
-        requete = "SELECT id_reservation FROM reserver WHERE date = %s, heure_debut = '10:10';"
+        requete = "SELECT id_reservation FROM Reserver WHERE date = %s, heure_debut = %s;"
         print("requete : ", requete)
-        param = (date,)# heure_debut)
+        param = (date, heure_debut)
         curseur.execute(requete, param)
         id_event = curseur.fetchone()
     except Exception as e:

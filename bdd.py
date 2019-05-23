@@ -56,7 +56,7 @@ def is_admin(id):
     try:
         cnx = connexion()
         cursor = cnx.cursor()
-        sql = "SELECT COUNT(id_utilisateur) FROM administrateurs WHERE id_utilisateur = %s;"
+        sql = "SELECT COUNT(id_utilisateur) FROM Administrateurs WHERE id_utilisateur = %s;"
         param = (id,)
         cursor.execute(sql, param)
         res = convert_dictionnary(cursor)
@@ -73,7 +73,7 @@ def authentification(login,mdp):
         print('coucou ', cnx)
         cursor = cnx.cursor()
         print('hallo ', cursor)
-        sql = "SELECT * FROM utilisateurs WHERE mail=%s AND mdp=%s LIMIT 1"
+        sql = "SELECT * FROM Utilisateurs WHERE mail=%s AND mdp=%s LIMIT 1"
         param = (login, mdp)
         cursor.execute(sql, param)
         res = convert_dictionnary(cursor)
@@ -103,7 +103,7 @@ def get_allCommentData():
     try:
         cnx = connexion()
         cursor = cnx.cursor()
-        sql = "SELECT * FROM commentaires"
+        sql = "SELECT * FROM Commentaires"
         cursor.execute(sql)
         res = convert_dictionnary(cursor)
     except mysql.connector.Error as err:
@@ -119,7 +119,7 @@ def add_commentData(nom, message, email):
     try:
         cnx = connexion()
         cursor = cnx.cursor()
-        sql = "INSERT INTO commentaires (nom, comment, email) VALUES (%s, %s, %s);"
+        sql = "INSERT INTO Commentaires (nom, comment, email) VALUES (%s, %s, %s);"
         param = (nom, message, email)
         cursor.execute(sql, param)
         cnx.commit()
@@ -135,7 +135,7 @@ def del_all_commentsData():
         cnx = connexion()
         #cnx.autocommit(False)
         cursor = cnx.cursor()
-        sql = "DELETE FROM commentaires;"
+        sql = "DELETE FROM Commentaires;"
         cursor.execute(sql)
         cnx.commit()
         close_bd(cursor, cnx)
@@ -149,7 +149,7 @@ def del_commentData(id_comment):
     try:
         cnx = connexion()
         cursor = cnx.cursor()
-        sql = "DELETE FROM commentaires WHERE id_comment=%s;"
+        sql = "DELETE FROM Commentaires WHERE id_comment=%s;"
         param = (id_comment,)
         cursor.execute(sql, param)
         cnx.commit()

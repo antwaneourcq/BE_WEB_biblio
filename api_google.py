@@ -102,7 +102,6 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
         with open(filename_token, 'wb') as token:
             pickle.dump(creds, token)
 
-
     service = build('calendar', 'v3', credentials=creds)
     event = {
         'summary': 'Occupé',
@@ -120,14 +119,11 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     }
     event = service.events().insert(calendarId=calendrier, body=event).execute()
     print('Event created: %s' % (event.get('htmlLink')))
-    ### voir si on garde le mail 
-    mail = 'test@h.fr'
-    #id_utilisateur = get_id_utilisateur(mail)
     id_utilisateur = session["id"]
     print("id: ", session['id'], session['mail'])
     ###partie base de donnée
     cnx = SGBD.createConnection()
-    msg = SGBD.ajout_reserver(cnx, 2, date, 120, heure_debut, id_objet_reservable, id_utilisateur, nb_pers)
+    msg = SGBD.ajout_reserver(cnx, date, heure_debut, heure_fin, id_objet_reservable, id_utilisateur, nb_pers)
     SGBD.closeConnection(cnx, cnx.cursor()) #a rendre plus joli
     return msg
 
