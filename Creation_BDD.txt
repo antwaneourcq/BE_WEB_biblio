@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS Bibliotheque;
-USE Bibliotheque;
+CREATE DATABASE IF NOT EXISTS IENAC18_Bibliotheque;
+USE IENAC18_Bibliotheque;
 CREATE TABLE IF NOT EXISTS Utilisateurs (
 	id_utilisateur INT NOT NULL,
 	nom VARCHAR (15),
