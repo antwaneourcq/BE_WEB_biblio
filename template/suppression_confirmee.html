@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+	
+	
+{% block title %} Suppression confirmée {% endblock %}
+
+			<!-- Start banner Area -->
+			{% block content %}
+			<section class="generic-banner relative">			
+				<div class="container">
+					<div class="row height align-items-center justify-content-center">
+						<div class="col-lg-10">
+							<div class="generic-banner-content">
+								<h2 class="text-white"> Réservation supprimée! </h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="section-top-border">
+				<p class="text-black"> Vous avez bien supprimé la page. Retournez à la <a href='{{ url_for("reservation") }}'> page de gestion ! </a></p>			
+			</div>
+				
+			<!-- End banner Area -->
+			{% endblock %}
