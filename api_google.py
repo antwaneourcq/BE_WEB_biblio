@@ -42,7 +42,7 @@ def se_connecter():
         filename_token = "token_amerique.pickle"
     if session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
-    if session["afrique"]==1:
+    else:
         filename_token = "token_afrique.pickle"
 
     if os.path.exists(filename_token):
@@ -85,7 +85,7 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     if session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
         id_objet_reservable = 5
-    if session["afrique"]==1:
+    else:
         filename_token = "token_afrique.pickle"
         id_objet_reservable = 2
 
@@ -148,7 +148,7 @@ def supprimer_event(date, heure_debut):
         filename_token = "token_amerique.pickle"
     if session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
-    if session["afrique"]==1:
+    else:
         filename_token = "token_afrique.pickle"
 
     if os.path.exists(filename_token):
@@ -208,7 +208,7 @@ def prochains_event(date,heure_debut):
         filename_token = "token_amerique.pickle"
     if session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
-    if session["afrique"]==1:
+    else:
         filename_token = "token_afrique.pickle"
 
     if os.path.exists(filename_token):
