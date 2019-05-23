@@ -117,7 +117,7 @@ def formulaire():
     if button_submit == "supp_reservation":
         info_add = formulaire_manage.del_reservation(request.form)
         #return functions.switch_msg(msg)
-        return redirect(url_for("index", info=info_add))
+        return redirect(url_for("suppression_confirmee", info=info_add))
 
 @app.route('/calendar_selection', methods = ['POST', 'GET'])
 def calendar_selection():
