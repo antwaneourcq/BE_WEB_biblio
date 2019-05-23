@@ -11,10 +11,10 @@ import SGBD
 
 id_objet_reservable = None
 
-def get_id_utilisateur(mail):
+def get_id_utilisateur():
     #à coder (voir si on garde le mail)
     #SGBD.createConnection()
-    id_utilisateur = 666
+    id_utilisateur = session['id']
     #SGBD.closeConnection()
     return id_utilisateur
 
@@ -31,7 +31,9 @@ def se_connecter():
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
+
     filename_token = 'token.pickle'
+    
     if session['europe']==1:
         filename_token = "token_europe.pickle"
     if session["asie"]==1:
@@ -248,6 +250,5 @@ def prochains_event(date,heure_debut):
     return eventId,date,heure_debut
 
 if __name__ == '__main__':
-    se_connecter()
-    # prochains_event('2019-05-23','11:00')
-    se_connecter()
+    # se_connecter()
+    pass
