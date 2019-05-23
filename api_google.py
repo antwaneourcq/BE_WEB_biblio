@@ -36,11 +36,11 @@ def se_connecter():
     
     if session['europe']==1:
         filename_token = "token_europe.pickle"
-    if session["asie"]==1:
+    elif session["asie"]==1:
         filename_token = "token_asie.pickle"
-    if session["amerique"]==1:
+    elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
-    if session["oceanie"]==1:
+    elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
     else:
         filename_token = "token_afrique.pickle"
@@ -142,11 +142,11 @@ def supprimer_event(date, heure_debut):
     filename_token = 'token.pickle'
     if session['europe']==1:
         filename_token = "token_europe.pickle"
-    if session["asie"]==1:
+    elif session["asie"]==1:
         filename_token = "token_asie.pickle"
-    if session["amerique"]==1:
+    elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
-    if session["oceanie"]==1:
+    elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
     else:
         filename_token = "token_afrique.pickle"
@@ -202,11 +202,11 @@ def prochains_event(date,heure_debut):
     filename_token = 'token.pickle'
     if session['europe']==1:
         filename_token = "token_europe.pickle"
-    if session["asie"]==1:
+    elif session["asie"]==1:
         filename_token = "token_asie.pickle"
-    if session["amerique"]==1:
+    elif session["amerique"]==1:
         filename_token = "token_amerique.pickle"
-    if session["oceanie"]==1:
+    elif session["oceanie"]==1:
         filename_token = "token_oceanie.pickle"
     else:
         filename_token = "token_afrique.pickle"
