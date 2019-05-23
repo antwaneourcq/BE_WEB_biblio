@@ -131,9 +131,11 @@
 										</div>
 										</div>
 									</div>											
+									{% if not session["is_admin"] %}									
 									<div class="mt-10 ml-150">
-										<input type="int" name='nb_pers' placeholder="Nombre de personnes"></textarea>
+										<input type="int" name='nb_pers' placeholder="Nombre de personnes" required=""></textarea>
 									</div>
+									{% endif %}
 									<div class="button-group-area mt-40 ml-150">
 										<button class="genric-btn primary e-large" name="btn_submit" value="form_reservation"> Réserver </button>{% if session["is_admin"] %} &nbsp;<button class="generic-btn primary e-large" name="btn_submit" value="supp_reservation"> Supprimer</button> {% endif %}
 																		
