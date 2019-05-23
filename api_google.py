@@ -73,7 +73,7 @@ def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     event = {
         'summary': 'Occupé',
         'location': '',
-        'description': session["mail"] + promo + str(nb_pers),
+        'description': "identifiant :"+ session["mail"] + " promo :" + promo + " nombre de personnes : " + str(nb_pers),
         'start': {
             'dateTime': date + 'T' + heure_debut + ':00+02:00',
             'timeZone': 'Europe/Paris',
