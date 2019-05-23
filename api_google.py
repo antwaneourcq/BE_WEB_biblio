@@ -11,7 +11,7 @@ import SGBD
 
 id_objet_reservable = None
 
-def get_id_utilisateur(mail):
+def get_id_utilisateur():
     #à coder (voir si on garde le mail)
     #SGBD.createConnection()
     id_utilisateur = session['id']
@@ -254,6 +254,4 @@ def prochains_event(date,heure_debut):
     return eventId,date,heure_debut
 
 if __name__ == '__main__':
-    se_connecter()
-    # prochains_event('2019-05-23','11:00')
-    se_connecter()
+    # se_connecter()
