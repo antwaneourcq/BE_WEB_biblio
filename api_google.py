@@ -51,13 +51,14 @@ def se_connecter():
     service = build('calendar', 'v3', credentials=creds)
 
 
-def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
+def creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers):
     # format 'AAAA-MM-JJ' date
     # format 'HH-MM-SS' heure_d
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
+    print("calendrier sélectionné api : ", calendrier)
     if os.path.exists('token.pickle'):
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
@@ -87,7 +88,7 @@ def creer_event(date, heure_debut, heure_fin, promo, nb_pers):
 
         },
     }
-    event = service.events().insert(calendarId='primary', body=event).execute()
+    event = service.events().insert(calendarId=calendrier, body=event).execute()
     print('Event created: %s' % (event.get('htmlLink')))
     ### voir si on garde le mail 
     mail = 'test@h.fr'
