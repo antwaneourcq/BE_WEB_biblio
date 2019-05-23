@@ -4,30 +4,30 @@ import SGBD as sgbd
 
 #print("cal_select : ", session["cal_sel"])
 def calendar_selected(name):
-    session["calendar"] = 0
+    session["calendar"] = ""
     session["europe"], session["amerique"], session["asie"], session["afrique"], session["oceanie"] = 0, 0, 0, 0, 0
     try:
         session.calendar = name
         session["sel_cal"] = name
         if name == 'europe':
             session["europe"] = 1
-            session["calendar"] = 1
+            session["calendar"] = "europe.bibliotheque.enac@gmail.com"
 
         if name == "afrique":
             session["afrique"] = 1
-            session["calendar"] = 1
+            session["calendar"] = "afrique.bibliotheque.enac@gmail!.com"
         
         if name == "amerique":
             session["amerique"] = 1
-            session["calendar"] = 1
+            session["calendar"] = "amerique.bibliotheque.enac@gmail.com"
         
         if name == "asie":
             session["asie"] = 1
-            session["calendar"] = 1
+            session["calendar"] = "asie.bibliotheque.enac@gmail.com"
         
         if name == "oceanie":
             session["oceanie"] = 1 
-            session["calendar"] = 1  
+            session["calendar"] = "oceanie.bibliotheque.enac@gmail.com"
     except:
         return "calendar_to_choose"
     return "calendar_success"
@@ -103,9 +103,11 @@ def add_reservation(dataform):
     heure_fin = dataform['h_fin']
     promo = "IENAC18" #dataform['promo']
     nb_pers = dataform['nb_pers']
+    calendrier = session["calendar"]
+    print("session pour calendrier : ", session)
     info = "insComment_success"
     #cnx = sgbd.createConnection()
-    msg = api_google.creer_event(date, heure_debut, heure_fin, promo, nb_pers)
+    msg = api_google.creer_event(calendrier, date, heure_debut, heure_fin, promo, nb_pers)
     if msg != "":
         info="insReservation_fail"
     return info
@@ -113,12 +115,9 @@ def add_reservation(dataform):
 def del_reservation(dataform):
     date = dataform['date']
     heure_debut = dataform['h_debut']
-    heure_fin = dataform['h_fin']
-    promo = "IENAC18" #dataform['promo']
-    nb_pers = dataform['nb_pers']
     info = "insComment_success"
     #cnx = sgbd.createConnection()
-    msg = api_google.supprimer_event(date, heure_debut, promo, nb_pers)
+    msg = api_google.supprimer_event(date, heure_debut)
     if msg != "":
         info="insReservation_fail"
     return info
