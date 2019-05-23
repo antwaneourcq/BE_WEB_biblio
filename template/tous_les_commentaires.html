@@ -22,7 +22,10 @@
                 <ol>
                     {% for ligne in data %}
                     <br>
-                    <li id="{{ ligne.id_comment}}">
+						<button class="generic-btn primary large ml-30"  name="btn_submit" value="del_all_comments"> Supprimer tous les commentaires </button>                    
+                   
+                    <li id="{{ ligne.id_comment}}"> 
+                    <br>
                         <h7> <b>Commentaire de {{ ligne.nom}} {{ ligne.prenom }} - {{ ligne.mail }}</b> </h7>
                         <p class="ml-50">{{ ligne.message }}</p>                       
                         <div class="button-group-area mb-10 ml-30">
