@@ -18,12 +18,14 @@
         </section>
 
         <section id="comment">
-
+            <form method="post" action="{{ url_for('formulaire') }}">
+                    <br>
+                    <button class="generic-btn primary large ml-30"  name="btn_submit" value="del_all_comments"> Supprimer tous les commentaires </button>                    
+            </form>       
                 <ol>
                     {% for ligne in data %}
-                    <br>
-						<button class="generic-btn primary large ml-30"  name="btn_submit" value="del_all_comments"> Supprimer tous les commentaires </button>                    
-                   
+                    
+						
                     <li id="{{ ligne.id_comment}}"> 
                     <br>
                         <h7> <b>Commentaire de {{ ligne.nom}} {{ ligne.prenom }} - {{ ligne.mail }}</b> </h7>
@@ -35,6 +37,7 @@
                     {% endfor %}
     
                 </ol>
+                <br>
       </section>
 
 

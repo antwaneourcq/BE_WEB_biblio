@@ -5,7 +5,9 @@ def switch_msg(info):
         'delComment_fail': "Problème suppression de commentaire",
         'delComment_success': "Le commentaire a bien été supprimé",
         'auth_success': "Authentification réussie",
-        'auth_fail': "Echec d'authentification"
+        'auth_fail': "Echec d'authentification",
+        "del_all_comment_success": "Succès de suppression des commentaires",
+        "del_all_comment_failed": "Echec de suppression des commentaires"
     }
     return switcher[info]
 
