@@ -99,8 +99,12 @@ def formulaire():
 
     if button_submit == "del_comment": # suppression d'un commentaire
         msg = formulaire_manage.del_comment(request.form)
-        #return functions.switch_msg(msg)
-        return None
+        #return functions.switch_msg(msg) 
+        return None #tous_les_commentaires
+    
+    if button_submit == "del_all_comments":
+        info_add = formulaire_manage.del_all_comments()
+        return redirect(url_for("tous_les_commentaires", info = info_add))
 
     if button_submit == "form_reservation":
         info_add = formulaire_manage.add_reservation(request.form)

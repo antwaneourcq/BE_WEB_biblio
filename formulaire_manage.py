@@ -94,7 +94,14 @@ def del_comment(dataform):
     idC = dataform["idC"]
     res = bdd.del_commentData(idC)
     if res != "":
-        msg = "delComment_success"
+        msg = "delComment_failed"
+    return msg
+    
+def del_all_comments(dataform):
+    msg = "del_all_comment_success"
+    res = bdd.del_all_commentsData()
+    if res != "":
+        msg = "del_all_comment_failed"
     return msg
 
 def add_reservation(dataform):
