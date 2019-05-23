@@ -130,11 +130,16 @@
 										<input type="time" id="hf" name="h_fin" min="9:00" max="19:30" required> <span class="note">Possible de 9h à 19h30</span>
 										</div>
 										</div>
+									
 									</div>											
 									{% if not session["is_admin"] %}									
 									<div class="mt-10 ml-150">
+										<input type="text" name='promo' placeholder="Promo" required=""></textarea>
+									</div>
+									<div class="mt-10 ml-150">
 										<input type="int" name='nb_pers' placeholder="Nombre de personnes" required=""></textarea>
 									</div>
+										
 									{% endif %}
 									<div class="button-group-area mt-40 ml-150">
 										<button class="genric-btn primary e-large" name="btn_submit" value="form_reservation"> Réserver </button>{% if session["is_admin"] %} &nbsp;<button class="generic-btn primary e-large" name="btn_submit" value="supp_reservation"> Supprimer </button> {% endif %}
