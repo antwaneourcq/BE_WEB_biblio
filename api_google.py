@@ -250,5 +250,4 @@ def prochains_event(date,heure_debut):
     return eventId,date,heure_debut
 
 if __name__ == '__main__':
-    # se_connecter()
-    pass
+    se_connecter()
