@@ -20,10 +20,6 @@ def get_id_utilisateur(mail):
 
 #id_utilisateur = get_id_utilisateur()
 
-""""gerer les ID des events + gerer le fait de devoir se co à chaque fois + faire un if pour ne pas ajouter un event 
-s'il y en a deja un de prevu à cette heure + ne pas pouvoir reserver hors des horaires d'ouverture + creer une fonction duree
-+ faire une fonction qui trouve l'id de l'utilisateur en cours"""
-
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
@@ -135,7 +131,7 @@ def supprimer_event(date, heure_debut):
     SGBD.closeConnection(cnx, cnx.cursor()) #a rendre plus joli
 
     ##
-    
+
     event_id = 0
     list_event_id,list_date,list_heure_debut = prochains_event(date,heure_debut)
 
