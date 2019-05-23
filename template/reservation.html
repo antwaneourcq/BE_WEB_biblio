@@ -1,8 +1,7 @@
 	<!DOCTYPE html>
 	
 	{% extends 'layout.html' %}
-	{% block title %} Site reservation biblio ENAC-Réservation {% endblock %}	
-	
+	{% block title %} Site réservation biblio ENAC-Réservation {% endblock %}	
 	{% block content %}
 			<!-- Start banner Area -->
 			<section class="generic-banner relative">			
@@ -10,7 +9,12 @@
 					<div class="row height align-items-center justify-content-center">
 						<div class="col-lg-10">
 							<div class="generic-banner-content">
-								<h2 class="text-white">Réservation</h2>
+									{% if not session["is_admin"]   %}
+									<h2 class="text-white">Réservation</h2>	
+									{% else %}
+									<h2 class="text-white">Gestion</h2>
+									{% endif %}
+								
 							</div>
 						</div>
 					</div>
