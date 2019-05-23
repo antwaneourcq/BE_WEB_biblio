@@ -211,7 +211,7 @@ def suppression_admin(cnx, id):
 
 ### reserver date, duree, heure, id_objet_reservable, id_reservation, id_utilisateur, nb_pers
 #utilisé
-def ajout_reserver(cnx, id, date, duree, heure, id_objet_reservable, id_utilisateur, nb_pers):
+def ajout_reserver(cnx, date, heure_debut, heure_fin, id_objet_reservable, id_utilisateur, nb_pers):
     requete = "INSERT INTO Reserver (date, heure_debut, heure_fin, id_espace_actuel, id_utilisateur, nb_pers) VALUES(%s,%s,%s,%s,%s,%s,%s);"
     param = (date, heure_debut, heure_fin, id_objet_reservable, id_utilisateur, nb_pers)
     msg = requete_sql(cnx, requete, param)
